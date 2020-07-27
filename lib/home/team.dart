@@ -96,14 +96,14 @@ List<Team> teams = [
         "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5c76bcaaa7ea43100043c836%2F400x400.jpg%3Ffit%3Dscale%26background%3D000000",
   ),
   Team(
-    name: "Pawan Kumar",
+    name: "Pawan",
     desc: "Co-Organizer",
     contribution: "Developed the app",
     image:
         "https://avatars1.githubusercontent.com/u/12619420?s=400&u=eac38b075e4e4463edfb0f0a8972825cf7803d4c&v=4",
   ),
   Team(
-    name: "Pawan Kumar",
+    name: "Pawan",
     desc: "Organizer",
     contribution: "Developed the app",
     image:

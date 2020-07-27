@@ -172,7 +172,7 @@ class HomeFront extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.envelope),
               onPressed: () async {
                 var emailUrl =
-                    '''mailto:mtechviral@gmail.com?subject=Support Needed For DevFest App&body={Name: Pawan Kumar},Email: pawan221b@gmail.com}''';
+                    '''mailto:mtechviral@gmail.com?subject=Support Needed For DevFest App&body={Name: Pawan},Email: pawan221b@gmail.com}''';
                 var out = Uri.encodeFull(emailUrl);
                 await _launchURL(out);
               },

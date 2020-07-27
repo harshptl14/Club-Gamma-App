@@ -19,18 +19,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^0.14.4
-  flutter_bloc: ^0.20.0
-  equatable: ^0.3.0
-  share: ^0.6.2+1
-  url_launcher: ^5.1.1
-  font_awesome_flutter: ^8.5.0
-  cached_network_image: ^1.1.1
-  shared_preferences: ^0.5.3+4
-  flutter_spinkit: "^3.1.0"
-  sliding_up_panel: ^0.3.4
-  google_maps_flutter: ^0.5.19+2
-  http: ^0.12.0+2
+  bloc:
+  flutter_bloc:
+  equatable:
+  share:
+  url_launcher:
+  font_awesome_flutter:
+  cached_network_image: 2.0.0-rc
+  shared_preferences:
+  flutter_spinkit:
+  sliding_up_panel:
+  google_maps_flutter:
+  http:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -39,6 +39,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+dependency_overrides:
+  extended_image_library:
+    git:
+      url: https://github.com/fluttercandies/extended_image_library.git
+      ref: b08fdf4e99a09967d0e44dbebac5d1584270205c
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

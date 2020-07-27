@@ -82,7 +82,7 @@ List<Speaker> speakers = [
   Speaker(
     speakerImage:
         "https://avatars1.githubusercontent.com/u/12619420?s=400&u=eac38b075e4e4463edfb0f0a8972825cf7803d4c&v=4",
-    speakerName: "Pawan Kumar",
+    speakerName: "Pawan",
     speakerDesc: "Google Developer Expert, Flutter",
     speakerSession: "Talk: Getting Started With Flutter For Web",
     fbUrl: "https://facebook.com/imthepk",
