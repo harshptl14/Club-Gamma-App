@@ -10,9 +10,11 @@ import 'package:flutter_devfest/universal/image_card.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeFront extends StatelessWidget {
+  String text = '#ClubGamma';
   List<Widget> devFestTexts(context) => [
         Text(
           Devfest.welcomeText,
@@ -69,7 +71,22 @@ class HomeFront extends StatelessWidget {
             shape: StadiumBorder(),
             color: Colors.purple,
             colorBrightness: Brightness.dark,
-            onPressed: () => Navigator.pushNamed(context, TeamPage.routeName),
+            onPressed: text.isEmpty
+                ? null
+                : () {
+                    // A builder is used to retrieve the context immediately
+                    // surrounding the RaisedButton.
+                    //
+                    // The context's `findRenderObject` returns the first
+                    // RenderObject in its descendent tree when it's not
+                    // a RenderObjectWidget. The RaisedButton's RenderObject
+                    // has its position and size after it's built.
+                    final RenderBox box = context.findRenderObject();
+                    Share.share(text,
+                        sharePositionOrigin:
+                            box.localToGlobal(Offset.zero) & box.size);
+                  },
+            //Navigator.pushNamed(context, TeamPage.routeName),
           ),
           RaisedButton(
             child: Text("FAQ"),
@@ -107,10 +124,23 @@ class HomeFront extends StatelessWidget {
                 Navigator.pushNamed(context, SpeakerPage.routeName),
           ),
           ActionCard(
-            icon: Icons.people,
+            icon: Icons.mobile_screen_share,
             color: Colors.amber,
-            title: Devfest.team_text,
-            onPressed: () => Navigator.pushNamed(context, TeamPage.routeName),
+            title: 'Promote',
+            onPressed: (){
+                    // A builder is used to retrieve the context immediately
+                    // surrounding the RaisedButton.
+                    //
+                    // The context's `findRenderObject` returns the first
+                    // RenderObject in its descendent tree when it's not
+                    // a RenderObjectWidget. The RaisedButton's RenderObject
+                    // has its position and size after it's built.
+                    final RenderBox box = context.findRenderObject();
+                    Share.share(text,
+                        sharePositionOrigin:
+                            box.localToGlobal(Offset.zero) & box.size);
+                  },
+            //Navigator.pushNamed(context, TeamPage.routeName),
           ),
           ActionCard(
             icon: Icons.attach_money,
