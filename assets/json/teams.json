@@ -1,33 +1,75 @@
 {
     "teams": [{
-            "name": "Sundar Pichai",
-            "desc": "Organizer",
-            "contribution": "Google CEO",
-            "image": "https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg"
-        },
-        {
-            "name": "Vrijraj",
-            "desc": "Co-Organizer",
-            "contribution": "Logistics and travels",
-            "image": "https://avatars2.githubusercontent.com/u/10599101?s=460&v=4"
-        },
-        {
-            "name": "Larry Page",
-            "desc": "Co-Organizer",
+            "name": "Jay Khatri",
+            "desc": "GitHub Campus Expert",
             "contribution": "Founder",
-            "image": "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5c76bcaaa7ea43100043c836%2F400x400.jpg%3Ffit%3Dscale%26background%3D000000"
+            "image": "https://user-images.githubusercontent.com/57007680/89312112-7e424e80-d694-11ea-904f-1acad1494df7.png"
         },
         {
-            "name": "Pawan",
-            "desc": "Co-Organizer",
-            "contribution": "Developed the app",
-            "image": "https://avatars1.githubusercontent.com/u/12619420?s=400&u=eac38b075e4e4463edfb0f0a8972825cf7803d4c&v=4"
+            "name": "Harsh Jobanputra",
+            "desc": "Mentor",
+            "contribution": "Founder",
+            "image": "https://user-images.githubusercontent.com/57007680/89312179-92864b80-d694-11ea-8563-d7679a3bb5da.png"
         },
         {
-            "name": "Pawan",
-            "desc": "Organizer",
-            "contribution": "Developed the app",
-            "image": "https://avatars1.githubusercontent.com/u/12619420?s=400&u=eac38b075e4e4463edfb0f0a8972825cf7803d4c&v=4"
+            "name": "Isha Khimsurya",
+            "desc": "Mentor",
+            "contribution": "Founder",
+            "image": "https://user-images.githubusercontent.com/57007680/89312305-c06b9000-d694-11ea-85bb-8e329bde3485.png"
+        },
+        {
+            "name": "Yash Paneliya",
+            "desc": "Club Manager",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312758-42f44f80-d695-11ea-955d-178d5e705703.png"
+        },
+        {
+            "name": "Dhruv Patel",
+            "desc": "Club Manager",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312778-4c7db780-d695-11ea-91dd-2933bcb2e81b.png"
+        },
+        {
+            "name": "Rudra Barad",
+            "desc": "Graphic Designer",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png"
+        },
+        {
+            "name": "Sumya Shah",
+            "desc": "Graphic Designer",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312801-52739880-d695-11ea-8a53-2908b0733ede.png"
+        },
+        {
+            "name": "Chirayu Joshi",
+            "desc": "Web Expert",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png"
+        },
+        {
+            "name": "Subham Raval",
+            "desc": "Web Expert",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312822-59021000-d695-11ea-98b0-ccda6c007600.png"
+        },
+        {
+            "name": "Harsh Patel",
+            "desc": "Mobile Expert",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312834-5c959700-d695-11ea-91b7-d9021d9af650.png"
+        },
+        {
+            "name": "Khushboo Singh",
+            "desc": "Social Media Manager",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312840-5f908780-d695-11ea-9b6b-4adc8e53be83.png"
+        }, {
+            "name": "Shreyanshi Shah",
+            "desc": "Content Writer",
+            "contribution": "Member",
+            "image": "https://user-images.githubusercontent.com/57007680/89312843-615a4b00-d695-11ea-8da5-29811e03953e.png"
         }
+
     ]
 }

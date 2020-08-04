@@ -1,9 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_devfest/dialogs/error_dialog.dart';
 import 'package:flutter_devfest/home/home_widgets/home_front.dart';
+import 'package:flutter_devfest/home/home_widgets/mainFile.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -79,7 +79,7 @@ class HomeScreenState extends State<HomeScreen> {
                     ),
                   ));
             }
-            return HomeFront();
+            return Mainpage();
           }),
     );
   }

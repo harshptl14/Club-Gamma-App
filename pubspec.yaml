@@ -31,6 +31,9 @@ dependencies:
   sliding_up_panel:
   google_maps_flutter:
   http:
+  timeline_list:
+  google_fonts:
+  flutter_staggered_grid_view:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2

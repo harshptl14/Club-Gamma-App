@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Devfest {
-  static const String app_name = "Devfest";
+  static const String app_name = "ClubGamma";
   static const String app_version = "Version 1.0.4";
   static const int app_version_code = 1;
   static const String app_color = "#ffd7167";
@@ -33,13 +33,13 @@ class Devfest {
 
   //* Images
   static const String home_img = "assets/images/home_img.jpeg";
-  static const String banner_light = "assets/images/banner_light.png";
-  static const String banner_dark = "assets/images/banner_dark.png";
+  static const String banner_light = "assets/images/gitGithub.jpeg";
+  static const String banner_dark = "assets/images/gitGithub.jpeg";
 
   //*  Texts
-  static const String welcomeText = "Welcome to GDG DevFest";
+  static const String welcomeText = "introduction to Git and github";
   static const String descText =
-      '''DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building & learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.''';
+      '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.''';
 
   static const String loading_text = "Loading...";
   static const String try_again_text = "Try Again";

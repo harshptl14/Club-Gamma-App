@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
     // );
 
     return DevScaffold(
+      settingsIcon: true,
       body: HomeScreen(homeBloc: _homeBloc),
       // body: SlidingUpPanel(
       //   parallaxEnabled: true,

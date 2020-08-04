@@ -6,6 +6,7 @@ import 'package:flutter_devfest/map/map_page.dart';
 import 'package:flutter_devfest/speakers/speaker_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/team/team_page.dart';
+import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/universal/image_card.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
@@ -213,37 +214,40 @@ class HomeFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            ImageCard(
-              img: ConfigBloc().darkModeOn
-                  ? Devfest.banner_dark
-                  : Devfest.banner_light,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ...devFestTexts(context),
-            SizedBox(
-              height: 20,
-            ),
-            newActions(context),
-            SizedBox(
-              height: 20,
-            ),
-            socialActions(context),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              Devfest.app_version,
-              style: Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
-            )
-          ],
+    return DevScaffold(
+          title: 'Event1',
+          body:SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              ImageCard(
+                img: ConfigBloc().darkModeOn
+                    ? Devfest.banner_dark
+                    : Devfest.banner_light,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ...devFestTexts(context),
+              SizedBox(
+                height: 20,
+              ),
+              newActions(context),
+              SizedBox(
+                height: 20,
+              ),
+              socialActions(context),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                Devfest.app_version,
+                style: Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
+              )
+            ],
+          ),
         ),
       ),
     );
