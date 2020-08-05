@@ -29,7 +29,7 @@ const List data = [
       "https://images.unsplash.com/photo-1529397938791-2aba4681454f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
       "https://lh3.googleusercontent.com/ZTlbHDpH59p-aH2h3ggUdhByhuq1AfviGuoQpt3QqaC7bROzbKuARKeEfggkjRmAwfB1p4yKbcjPusNDNIE9O7STbc9C0SAU0hmyTjA=s660"
     ],
-    "icon": Icon(const IconData(0xe900, fontFamily: 'twotwo'),),
+    "icon": Icon(const IconData(0xe900, fontFamily: 'Schyler'),),
     "iconBackground": Colors.cyan
   },
   {
