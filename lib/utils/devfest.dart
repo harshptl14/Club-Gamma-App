@@ -10,6 +10,7 @@ class Devfest {
   static Color secondaryAppColor = Colors.black;
   static const String google_sans_family = "GoogleSans";
   static bool isDebugMode = false;
+  static Color contrastColor = Color(0xffD31E3C);
 
   // * Url related
   static String baseUrl = "https://storage.googleapis.com/gdg-devfest";

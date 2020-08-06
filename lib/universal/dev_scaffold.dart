@@ -4,6 +4,7 @@ import 'package:flutter_devfest/config/config_bloc.dart';
 import 'package:flutter_devfest/config/config_event.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
 import 'package:flutter_devfest/team/team_page.dart';
+import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
@@ -169,7 +170,7 @@ class _DevScaffoldState extends State<DevScaffold> {
                     child: Row(
                       children: [
                         Text('What are you '),
-                        Text('Searching for?', style: TextStyle(color: Colors.red),),
+                        Text('Searching for?', style: TextStyle(color: Devfest.contrastColor),),
                       ],
                     ),
                   ),
@@ -184,7 +185,7 @@ class _DevScaffoldState extends State<DevScaffold> {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
-                                    builder: (context) => TimelinePage()));
+                                    builder: (context) => Timeline()));
                           }),
                       SizedBox(
                         width: 13,
