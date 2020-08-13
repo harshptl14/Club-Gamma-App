@@ -8,12 +8,12 @@ class Devfest {
   static const String app_color = "#ffd7167";
   static Color primaryAppColor = Colors.white;
   static Color secondaryAppColor = Colors.black;
-  static const String google_sans_family = "GoogleSans";
+  static const String google_sans_family = "Ubuntu";
   static bool isDebugMode = false;
   static Color contrastColor = Color(0xffD31E3C);
 
   // * Url related
-  static String baseUrl = "https://storage.googleapis.com/gdg-devfest";
+  static String baseUrl = "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
 
   static checkDebug() {
     assert(() {

@@ -5,7 +5,6 @@ import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/map/map_page.dart';
 import 'package:flutter_devfest/speakers/speaker_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
-import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/universal/image_card.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
@@ -49,15 +48,17 @@ class HomeFront extends StatelessWidget {
             shape: StadiumBorder(),
             color: Colors.red,
             colorBrightness: Brightness.dark,
-            onPressed: () => Navigator.pushNamed(context, AgendaPage.routeName),
+            onPressed: () {
+               // Navigator.pushNamed(context, AgendaPage.routeName),
+            } 
           ),
           RaisedButton(
             child: Text("Speakers"),
             shape: StadiumBorder(),
             color: Colors.green,
             colorBrightness: Brightness.dark,
-            onPressed: () =>
-                Navigator.pushNamed(context, SpeakerPage.routeName),
+            onPressed: () {}
+                //Navigator.pushNamed(context, SpeakerPage.routeName),
           ),
           RaisedButton(
             child: Text("Sponsors"),
@@ -115,14 +116,14 @@ class HomeFront extends StatelessWidget {
             icon: Icons.schedule,
             color: Colors.red,
             title: Devfest.agenda_text,
-            onPressed: () => Navigator.pushNamed(context, AgendaPage.routeName),
+            //onPressed: () => Navigator.pushNamed(context, AgendaPage.routeName),
           ),
           ActionCard(
             icon: Icons.person,
             color: Colors.green,
             title: Devfest.speakers_text,
-            onPressed: () =>
-                Navigator.pushNamed(context, SpeakerPage.routeName),
+            onPressed: () {}
+                //Navigator.pushNamed(context, SpeakerPage.routeName),
           ),
           ActionCard(
             icon: Icons.mobile_screen_share,

@@ -63,10 +63,10 @@ class _ConfigPageState extends State<ConfigPage> {
             home: HomePage(),
             routes: {
               HomePage.routeName: (context) => HomePage(),
-              SpeakerPage.routeName: (context) => SpeakerPage(),
-              AgendaPage.routeName: (context) => AgendaPage(),
+              //SpeakerPage.routeName: (context) => SpeakerPage(),
+              //AgendaPage.routeName: (context) => AgendaPage(),
               SponsorPage.routeName: (context) => SponsorPage(),
-              TeamPage.routeName: (context) => TeamPage(),
+              //TeamPage.routeName: (context) => TeamPage(),
               FaqPage.routeName: (context) => FaqPage(),
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
               MapPage.routeName: (context) => MapPage(),

@@ -1,6 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_devfest/home/session.dart';
-import 'package:flutter_devfest/home/speaker.dart';
 import 'package:flutter_devfest/home/team.dart';
 import 'package:meta/meta.dart';
 
@@ -25,24 +23,35 @@ class UnHomeState extends HomeState {
 
 /// Initialized
 class InHomeState extends HomeState {
-  final SpeakersData speakersData;
-  final SessionsData sessionsData;
+  final dynamic speakerData;
+  final dynamic eventData;
+  // final SpeakersData speakersData;
+  // final SessionsData sessionsData;
   final TeamsData teamsData;
 
-  InHomeState(
-      {@required this.speakersData,
-      @required this.sessionsData,
-      @required this.teamsData})
-      : super([speakersData, sessionsData, teamsData]);
+  InHomeState({
+    @required this.eventData,
+    @required this.speakerData,
+    // @required this.speakersData,
+    // @required this.sessionsData,
+    @required this.teamsData
+  }) : super([
+          eventData, speakerData,
+          //speakersData, sessionsData, 
+          teamsData
+        ]);
   @override
   String toString() => 'InHomeState';
 
   @override
   HomeState getStateCopy() {
     return InHomeState(
-        speakersData: this.speakersData,
-        sessionsData: this.sessionsData,
-        teamsData: this.teamsData);
+      speakerData: this.speakerData,
+      eventData: this.eventData,
+      // speakersData: this.speakersData,
+      // sessionsData: this.sessionsData,
+      teamsData: this.teamsData
+    );
   }
 }
 

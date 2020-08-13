@@ -1,14 +1,14 @@
+import 'package:flutter_devfest/config/config_bloc.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/photos/photosScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
+import 'package:flutter_devfest/utils/tools.dart';
 import 'data.dart';
-
 
 class Timeline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DevScaffold(
-      
       title: 'Gallery',
       body: Padding(
         padding: const EdgeInsets.only(top: 10),
@@ -48,13 +48,15 @@ class _TimelineeState extends State<Timelinee> {
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.only(left: 5, right: 5),
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey[200],
-                        blurRadius: 15,
-                        spreadRadius: 5,
-                      )
-                    ],
+                    boxShadow: !ConfigBloc().darkModeOn
+                        ? [
+                            BoxShadow(
+                              color: Colors.grey[200],
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ]
+                        : null,
                     borderRadius: BorderRadius.circular(30),
                     color: Color(0xffffcccc),
                   ),
@@ -66,13 +68,15 @@ class _TimelineeState extends State<Timelinee> {
                         height: 10,
                         width: 10,
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey[200],
-                              blurRadius: 15,
-                              spreadRadius: 5,
-                            )
-                          ],
+                          boxShadow: !ConfigBloc().darkModeOn
+                              ? [
+                                  BoxShadow(
+                                    color: Colors.grey[200],
+                                    blurRadius: 10,
+                                    spreadRadius: 5,
+                                  )
+                                ]
+                              : null,
                           borderRadius: BorderRadius.circular(50),
                           color: Color(0xffD71E3C),
                         ),
@@ -85,13 +89,15 @@ class _TimelineeState extends State<Timelinee> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey[200],
-                        blurRadius: 15,
-                        spreadRadius: 5,
-                      ),
-                    ],
+                    boxShadow: !ConfigBloc().darkModeOn
+                        ? [
+                            BoxShadow(
+                              color: Colors.grey[200],
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ]
+                        : null,
                     color: Color(0xffD71E3C),
                   ),
                   width: 1,
@@ -100,7 +106,9 @@ class _TimelineeState extends State<Timelinee> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(
+                top: 20,
+              ),
               child: InkWell(
                 borderRadius: BorderRadius.circular(8),
                 onTap: () {
@@ -117,25 +125,30 @@ class _TimelineeState extends State<Timelinee> {
                   height: MediaQuery.of(context).size.height * 0.32,
                   width: MediaQuery.of(context).size.width * 0.87,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[200],
-                          blurRadius: 10,
-                          spreadRadius: 5,
-                        )
-                      ]),
+                    color: ConfigBloc().darkModeOn
+                        ? Tools.hexToColor("#1f2124")
+                        : Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: !ConfigBloc().darkModeOn
+                        ? [
+                            BoxShadow(
+                              color: Colors.grey[200],
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ]
+                        : null,
+                  ),
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
                         height: 5,
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 10, right: 220),
+                        padding: EdgeInsets.only(top: 10, left: 20),
                         child: Text(
-                          'EVENT 1',
+                          'EVENT ${index + 1}',
                           style:
                               TextStyle(color: Color(0xffD31E3C), fontSize: 13),
                           textAlign: TextAlign.start,
@@ -145,24 +158,26 @@ class _TimelineeState extends State<Timelinee> {
                         height: 3,
                       ),
                       Container(
-                        alignment: Alignment.center,
+                        padding: EdgeInsets.only(left: 20),
+                        //alignment: Alignment.center,
                         child: Image.network(data[index]['doodle'][0]),
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        width: MediaQuery.of(context).size.width * 0.77,
+                        height: MediaQuery.of(context).size.height * 0.17,
+                        width: MediaQuery.of(context).size.width * 0.82,
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Container(
-                        padding: EdgeInsets.only(right: 25),
+                        padding: EdgeInsets.only(left: 20),
                         child: Text(
                           data[index]['name'],
-                          style: TextStyle(color: Colors.black, fontSize: 18),
+                          style: TextStyle(color: !ConfigBloc().darkModeOn ? Colors.black : Colors.white,
+                           fontSize: 18),
                           textAlign: TextAlign.start,
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 10, right: 200),
+                        padding: EdgeInsets.only(top: 10, left: 20),
                         child: Text(
                           data[index]['date'],
                           style: TextStyle(color: Colors.grey, fontSize: 13),

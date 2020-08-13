@@ -34,6 +34,8 @@ dependencies:
   timeline_list:
   google_fonts:
   flutter_staggered_grid_view:
+  yaml:
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -74,9 +76,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: GoogleSans
+    - family: Ubuntu
       fonts:
-        - asset: assets/fonts/GoogleSansRegular.ttf
+        - asset: assets/fonts/Ubuntu.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

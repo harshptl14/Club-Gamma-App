@@ -16,12 +16,16 @@ class LoadHomeEvent extends HomeEvent {
   @override
   Future<HomeState> applyAsync({HomeState currentState, HomeBloc bloc}) async {
     try {
-      var speakersData = await _homeProvider.getSpeakers();
-      var sessionsData = await _homeProvider.getSessions();
+      dynamic eventData = await _homeProvider.getEvent();
+      dynamic speakerData = await _homeProvider.loadfromAPI();
+      // var speakersData = await _homeProvider.getSpeakers();
+      // var sessionsData = await _homeProvider.getSessions();
       var teamsData = await _homeProvider.getTeams();
       return InHomeState(
-        speakersData: speakersData,
-        sessionsData: sessionsData,
+        eventData: eventData,
+        speakerData: speakerData,
+        // speakersData: speakersData,
+        // sessionsData: sessionsData,
         teamsData: teamsData,
       );
     } catch (_, stackTrace) {

@@ -20,27 +20,27 @@ class MockClient implements IClient {
     String rawString;
 
     //? For Speakers Hardcoded Data
-    if (resourcePath == HomeProvider.kConstGetSpeakersUrl) {
-      if (Injector().currentDataMode == DataMode.DART) {
-        rawString = jsonEncode(SpeakersData(speakers: speakers));
-      } else {
-        rawString = await rootBundle.loadString(Devfest.speakersAssetJson);
-      }
-      resultClass = await compute(jsonParserIsolate, rawString);
-    }
+    // if (resourcePath == HomeProvider.kConstGetSpeakersUrl) {
+    //   if (Injector().currentDataMode == DataMode.DART) {
+    //     rawString = jsonEncode(SpeakersData(speakers: speakers));
+    //   } else {
+    //     rawString = await rootBundle.loadString(Devfest.speakersAssetJson);
+    //   }
+    //   resultClass = await compute(jsonParserIsolate, rawString);
+    // }
 
     //? For Sessions Hardcoded Data
-    else if (resourcePath == HomeProvider.kConstGetSessionsUrl) {
-      if (Injector().currentDataMode == DataMode.DART) {
-        rawString = jsonEncode(SessionsData(sessions: sessions));
-      } else {
-        rawString = await rootBundle.loadString(Devfest.sessionsAssetJson);
-      }
-      resultClass = await compute(jsonParserIsolate, rawString);
-    }
+    // else if (resourcePath == HomeProvider.kConstGetSessionsUrl) {
+    //   if (Injector().currentDataMode == DataMode.DART) {
+    //     rawString = jsonEncode(SessionsData(sessions: sessions));
+    //   } else {
+    //     rawString = await rootBundle.loadString(Devfest.sessionsAssetJson);
+    //   }
+    //   resultClass = await compute(jsonParserIsolate, rawString);
+    // }
 
     //? For Teams Hardcoded Data
-    else if (resourcePath == HomeProvider.kConstGetTeamsUrl) {
+     if (resourcePath == HomeProvider.kConstGetTeamsUrl) {
       if (Injector().currentDataMode == DataMode.DART) {
         rawString = jsonEncode(TeamsData(teams: teams));
       } else {
