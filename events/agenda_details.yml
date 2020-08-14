@@ -39,7 +39,8 @@
      time: 12 PM
      timeduration: 12:00 to 12:05 PM
    - name: |
-        Git CLI
+        Git
+        CLI
      time: 12:05 PM
      duration: 1 hr
      timeduration: 12:00 to 01:00 PM
