@@ -76,10 +76,10 @@ WidgetsFlutterBinding.ensureInitialized();
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   // * Get Shared Preference Instance for whole app
-  Devfest.prefs = await SharedPreferences.getInstance();
+  ClubGamma.prefs = await SharedPreferences.getInstance();
 
   //* To check the app is running in debug and set some variables for that
-  Devfest.checkDebug();
+  ClubGamma.checkDebug();
 
   //* Time travel debugging to check app states
   BlocSupervisor.delegate = SimpleBlocDelegate();

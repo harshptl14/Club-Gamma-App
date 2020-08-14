@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/home/index.dart';
+import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:flutter_devfest/model/eventModel.dart';
-import 'package:flutter_devfest/model/speakerData.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 
 class CompletedEvent extends StatefulWidget {
@@ -14,31 +14,30 @@ class CompletedEvent extends StatefulWidget {
 var _homeBloc = HomeBloc();
 var state = _homeBloc.currentState as InHomeState;
 dynamic events = state.eventData;
-//dynamic speaker = state.speakerData;
+dynamic agenda = state.agendaData;
 
 class _CompletedEventState extends State<CompletedEvent> {
   @override
   void initState() {
-    // loadSpeaker(speaker).then((value) {
-    //   setState(() {
-    //     _list.addAll(value);
-    //   });
-    // });
+   loadSpeaker(agenda).then((value) {
+      setState(() {
+        _list.addAll(value);
+      });
+    });
     super.initState();
   }
 
- // List<Speaker> _list = List<Speaker>();
+  List<Agenda> _list = List<Agenda>();
 
   Future<dynamic> loadEvent(events) async {
     var eventtt = await events;
     return eventtt;
   }
 
-  // Future<List<Speaker>> loadSpeaker(speaker) async {
-  //   List<Speaker> speakerr = speaker;
-  //   return speakerr;
-  // }
-
+  Future<List<Agenda>> loadSpeaker(speaker) async {
+    List<Agenda> agendaa = speaker;
+    return agendaa;
+  }
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -70,7 +69,7 @@ class _CompletedEventState extends State<CompletedEvent> {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
-                                    builder: (context) => HomeFront(temp)));
+                                    builder: (context) => HomeFront(temp, _list[index])));
                           },
                           child: Ink(
                             height: MediaQuery.of(context).size.height * 0.24,

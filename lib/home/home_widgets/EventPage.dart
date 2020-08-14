@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/home/index.dart';
+import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:flutter_devfest/model/eventModel.dart';
-import 'package:flutter_devfest/model/speakerData.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 
 class EventPage extends StatefulWidget {
@@ -14,34 +14,34 @@ class EventPage extends StatefulWidget {
 var _homeBloc = HomeBloc();
 var state = _homeBloc.currentState as InHomeState;
 dynamic events = state.eventData;
-//dynamic speaker = state.speakerData;
+dynamic agenda = state.agendaData;
 
 class _EventPageState extends State<EventPage> {
   @override
   void initState() {
-    // loadSpeaker(speaker).then((value) {
-    //   setState(() {
-    //     _list.addAll(value);
-    //   });
-    //});
+    loadSpeaker(agenda).then((value) {
+      setState(() {
+        _list.addAll(value);
+      });
+    });
     super.initState();
   }
 
-  //List<Speaker> _list = List<Speaker>();
+  List<Agenda> _list = List<Agenda>();
 
-  Future<dynamic> loadEvent(events) async {
-    var eventtt = await events;
+  Future<dynamic> loadEvent(agenda) async {
+    var eventtt = await agenda;
     return eventtt;
   }
 
-  // Future<List<Speaker>> loadSpeaker(speaker) async {
-  //   List<Speaker> speakerr = speaker;
-  //   return speakerr;
-  // }
+  Future<List<Agenda>> loadSpeaker(speaker) async {
+    List<Agenda> agendaa = speaker;
+    return agendaa;
+  }
 
   @override
   Widget build(BuildContext context) {
-   // print(_list[0].name);
+    //print(_list[0].agendaList[0].time);
     return FutureBuilder(
       future: loadEvent(events),
       builder: (context, snapshot) {
@@ -72,7 +72,7 @@ class _EventPageState extends State<EventPage> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (context) =>
-                                        HomeFront(temp)));
+                                        HomeFront(temp, _list[index])));
                           },
                           child: Ink(
                             height: MediaQuery.of(context).size.height * 0.255,
@@ -117,7 +117,7 @@ class _EventPageState extends State<EventPage> {
                                         padding:
                                             EdgeInsets.only(top: 10, left: 15),
                                         child: Text(
-                                          temp.venue,
+                                          temp.type,
                                           style: TextStyle(
                                               color: Color(0xffD31E3C),
                                               fontSize: 13),

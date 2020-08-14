@@ -23,7 +23,7 @@ class LoadingDialog extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(Devfest.loading_text),
+              Text(ClubGamma.loading_text),
             ],
           ),
         ),

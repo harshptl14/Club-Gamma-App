@@ -18,12 +18,12 @@ class LoadHomeEvent extends HomeEvent {
     try {
       dynamic eventData = await _homeProvider.getEvent();
     //  dynamic speakerData = await _homeProvider.loadfromAPI();
-      // var speakersData = await _homeProvider.getSpeakers();
+       var agendaData = await _homeProvider.loadfromAPI();
       // var sessionsData = await _homeProvider.getSessions();
       var teamsData = await _homeProvider.getTeams();
       return InHomeState(
         eventData: eventData,
-       // speakerData: speakerData,
+        agendaData: agendaData,
         // speakersData: speakersData,
         // sessionsData: sessionsData,
         teamsData: teamsData,

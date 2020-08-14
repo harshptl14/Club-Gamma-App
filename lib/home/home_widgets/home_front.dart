@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_devfest/agenda/agenda_page.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/map/map_page.dart';
@@ -16,7 +17,8 @@ import 'package:url_launcher/url_launcher.dart';
 class HomeFront extends StatelessWidget {
   var text = '#ClubGamma';
   var tempData;
-  HomeFront(this.tempData);
+  var agendaData;
+  HomeFront(this.tempData, this.agendaData);
 
   List<Widget> devFestTexts(context) => [
         Text(
@@ -48,15 +50,21 @@ class HomeFront extends StatelessWidget {
         runSpacing: 20.0,
         children: <Widget>[
           ActionCard(
-            icon: Icons.schedule,
-            color: Colors.red,
-            title: Devfest.agenda_text,
-            //onPressed: () => Navigator.pushNamed(context, AgendaPage.routeName),
-          ),
+              icon: Icons.schedule,
+              color: ClubGamma.contrastColor,
+              title: ClubGamma.agenda_text,
+              onPressed: () {
+
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => AgendaPage(agendaData)));
+
+              }),
           ActionCard(
               icon: Icons.person,
-              color: Colors.green,
-              title: Devfest.speakers_text,
+              color: ClubGamma.contrastColor,
+              title: ClubGamma.speakers_text,
               onPressed: () {
                 Navigator.push(
                     context,
@@ -65,7 +73,7 @@ class HomeFront extends StatelessWidget {
               }),
           ActionCard(
             icon: Icons.mobile_screen_share,
-            color: Colors.amber,
+            color: ClubGamma.contrastColor,
             title: 'Promote',
             onPressed: () {
               // A builder is used to retrieve the context immediately
@@ -84,21 +92,21 @@ class HomeFront extends StatelessWidget {
           ),
           ActionCard(
             icon: Icons.attach_money,
-            color: Colors.purple,
-            title: Devfest.sponsor_text,
+            color: ClubGamma.contrastColor,
+            title: ClubGamma.sponsor_text,
             onPressed: () =>
                 Navigator.pushNamed(context, SponsorPage.routeName),
           ),
           ActionCard(
             icon: Icons.question_answer,
-            color: Colors.brown,
-            title: Devfest.faq_text,
+            color: ClubGamma.contrastColor,
+            title: ClubGamma.faq_text,
             onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
           ),
           ActionCard(
             icon: Icons.map,
-            color: Colors.blue,
-            title: Devfest.map_text,
+            color: ClubGamma.contrastColor,
+            title: ClubGamma.map_text,
             onPressed: () => Navigator.pushNamed(context, MapPage.routeName),
           )
         ],
@@ -111,38 +119,40 @@ class HomeFront extends StatelessWidget {
             IconButton(
               icon: Icon(FontAwesomeIcons.facebookF),
               onPressed: () async {
-                await _launchURL("https://facebook.com/imthepk");
+                await _launchURL("https://www.facebook.com/clubgamma/");
               },
             ),
             IconButton(
               icon: Icon(FontAwesomeIcons.twitter),
               onPressed: () async {
-                await _launchURL("https://twitter.com/imthepk");
+                await _launchURL("https://twitter.com/club_gamma");
               },
             ),
             IconButton(
               icon: Icon(FontAwesomeIcons.linkedinIn),
               onPressed: () async {
-                _launchURL("https://linkedin.com/in/imthepk");
+                _launchURL(
+                    "https://www.linkedin.com/company/clubgamma/?originalSubdomain=in");
               },
             ),
             IconButton(
               icon: Icon(FontAwesomeIcons.youtube),
               onPressed: () async {
-                await _launchURL("https://youtube.com/mtechviral");
+                await _launchURL(
+                    "https://www.youtube.com/channel/UCFO_j0Kml2tT3aFgVUSYGxQ");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.meetup),
+              icon: Icon(FontAwesomeIcons.instagram),
               onPressed: () async {
-                await _launchURL("https://meetup.com/");
+                await _launchURL("https://www.instagram.com/club_gamma/?hl=en");
               },
             ),
             IconButton(
               icon: Icon(FontAwesomeIcons.envelope),
               onPressed: () async {
                 var emailUrl =
-                    '''mailto:mtechviral@gmail.com?subject=Support Needed For DevFest App&body={Name: Pawan},Email: pawan221b@gmail.com}''';
+                    '''mailto:gce@charusat.edu.in?subject=Support Needed For ClubGamma App''';
                 var out = Uri.encodeFull(emailUrl);
                 await _launchURL(out);
               },
@@ -154,7 +164,7 @@ class HomeFront extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DevScaffold(
-      title: tempData.venue,
+      title: tempData.type,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -163,9 +173,9 @@ class HomeFront extends StatelessWidget {
             children: <Widget>[
               ImageCard(
                 img: ConfigBloc().darkModeOn
-                    ? Devfest.banner_light
+                    ? ClubGamma.banner_light
                     //Image.network(tempData.imagelink)
-                    : Devfest.banner_light,
+                    : ClubGamma.banner_light,
               ),
               SizedBox(
                 height: 20,
@@ -183,7 +193,7 @@ class HomeFront extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                Devfest.app_version,
+                ClubGamma.app_version,
                 style:
                     Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
               )

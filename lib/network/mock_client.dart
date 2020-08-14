@@ -44,7 +44,7 @@ class MockClient implements IClient {
       if (Injector().currentDataMode == DataMode.DART) {
         rawString = jsonEncode(TeamsData(teams: teams));
       } else {
-        rawString = await rootBundle.loadString(Devfest.teamsAssetJson);
+        rawString = await rootBundle.loadString(ClubGamma.teamsAssetJson);
       }
       resultClass = await compute(jsonParserIsolate, rawString);
     }

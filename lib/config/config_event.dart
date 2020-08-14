@@ -19,7 +19,7 @@ class DarkModeEvent extends ConfigEvent {
       {ConfigState currentState, ConfigBloc bloc}) async {
     try {
       bloc.darkModeOn = darkOn;
-      Devfest.prefs.setBool(Devfest.darkModePref, darkOn);
+      ClubGamma.prefs.setBool(ClubGamma.darkModePref, darkOn);
       return InConfigState();
     } catch (_, stackTrace) {
       print('$_ $stackTrace');

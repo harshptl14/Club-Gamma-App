@@ -19,7 +19,7 @@ class EventModel {
     date = data['date'];
     time = data['time'];
     venue = data['venue'];
-    type = data['type'];
+    type = data['event_type'];
     regLink = data['registrationLink'];
     //speaker = data['speakers'];
     var list = data['speakers'] as List;

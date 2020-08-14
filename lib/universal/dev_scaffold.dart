@@ -170,7 +170,7 @@ class _DevScaffoldState extends State<DevScaffold> {
                     child: Row(
                       children: [
                         Text('What are you '),
-                        Text('Searching for?', style: TextStyle(color: Devfest.contrastColor),),
+                        Text('Searching for?', style: TextStyle(color: ClubGamma.contrastColor),),
                       ],
                     ),
                   ),

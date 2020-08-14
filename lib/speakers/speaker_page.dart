@@ -105,7 +105,7 @@ class SpeakerPage extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width *
                                           0.2,
                                       height: 5,
-                                      color: Devfest.contrastColor,
+                                      color: ClubGamma.contrastColor,
                                     ),
                                   ],
                                 ),

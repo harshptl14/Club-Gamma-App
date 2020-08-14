@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Devfest {
+class ClubGamma {
   static const String app_name = "ClubGamma";
-  static const String app_version = "Version 1.0.4";
+  static const String app_version = "Version 1.0.0";
   static const int app_version_code = 1;
   static const String app_color = "#ffd7167";
   static Color primaryAppColor = Colors.white;

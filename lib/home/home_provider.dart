@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter_devfest/model/speakerData.dart';
+import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_devfest/home/team.dart';
 import 'package:flutter_devfest/network/i_client.dart';
@@ -12,21 +12,21 @@ abstract class IHomeProvider {
   // Future<SessionsData> getSessions();
   Future<TeamsData> getTeams();
   getEvent();
-  //loadfromAPI();
+  loadfromAPI();
 }
 
 class HomeProvider implements IHomeProvider {
   IClient _client;
 
   static final String kConstGetSpeakersUrl =
-      "${Devfest.baseUrl}/speaker-kol.json";
+      "${ClubGamma.baseUrl}/speaker-kol.json";
 
   //! Not Working
   static final String kConstGetSessionsUrl =
-      "${Devfest.baseUrl}/session-kol.json";
+      "${ClubGamma.baseUrl}/session-kol.json";
 
   //! Not Working
-  static final String kConstGetTeamsUrl = "${Devfest.baseUrl}/team-kol.json";
+  static final String kConstGetTeamsUrl = "${ClubGamma.baseUrl}/team-kol.json";
 
   HomeProvider() {
     _client = Injector().currentClient;
@@ -40,22 +40,22 @@ class HomeProvider implements IHomeProvider {
     return jsontolist;
   }
 
-  // @override
-  // loadfromAPI() async {
-  //   var res = await http.get(
-  //       'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/speaker_details.yml');
-  //   var list = List<Speaker>();
-  //   if (res.statusCode == 200) {
-  //     var eventJson = json.decode(json.encode(loadYaml(res.body)));
-  //     print('data');
-  //     print(eventJson);
-  //     for (var eventJson in eventJson) {
-  //       list.add(Speaker.fromJson(eventJson));
-  //     }
-  //     return list;
-  //   }
-  //   //EventModel ress = EventModel.loadfromAPI(list);
-  // }
+  @override
+  loadfromAPI() async {
+    var res = await http.get(
+        'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/agenda_details.yml');
+    var list = List<Agenda>();
+    if (res.statusCode == 200) {
+      var eventJson = json.decode(json.encode(loadYaml(res.body)));
+      print('data');
+      print(eventJson);
+      for (var eventJson in eventJson) {
+        list.add(Agenda.fromJson(eventJson));
+      }
+      return list;
+    }
+    //EventModel ress = EventModel.loadfromAPI(list);
+  }
 
   // @override
   // Future<SpeakersData> getSpeakers() async {
