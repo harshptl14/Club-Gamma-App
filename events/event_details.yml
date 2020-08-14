@@ -5,7 +5,25 @@
   date: 2020-08-22
   time: 9:00 AM
   venue: Google Meet
+  type: Workshop
   registrationLink: https://gce.typeform.com/to/hcRCYBWr
+  speakers:
+   - name: Rudra Barad
+     post: Graphics Designer
+     image: https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png
+     session: Basic of GitHub
+     linkedin: https://www.linkedin.com/in/rudra-barad/
+     twitter: https://twitter.com/rudraabarad
+     github: https://github.com/rudrabarad
+     instagram: https://www.instagram.com/rudra.barad/
+   - name: Chirayu Joshi
+     post: Web Expert
+     image: https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png
+     session: Handson session
+     linkedin: https://www.linkedin.com/in/chirayu-joshi-154b3317b/
+     twitter: https://twitter.com/chirayu_joshi_
+     github: https://github.com/chirayu-joshi
+     instagram: https://www.instagram.com/chirayujoshi1189/
 - title: Chit chat with facebook intern
   event_type: Seminar
   description: It's a 3 hours hands on workshop which will be conducted by our club for all students to learn Git & GitHub so that they can collaborate on professional projects with other developers
@@ -13,4 +31,22 @@
   date: 2020-09-23
   time: 9:00 AM
   venue: Google Meet
+  type: Seminar
   registrationLink: https://gce.typeform.com/to/hcRCYBWr
+  speakers:   
+   - name:
+     post: 
+     image: 
+     session: 
+     linkedin: 
+     twitter: 
+     github: 
+     instagram: 
+   - name: 
+     post:
+     image: 
+     session:
+     linkedin:
+     twitter:
+     github: 
+     instagram:

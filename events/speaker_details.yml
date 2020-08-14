@@ -1,0 +1,9 @@
+- speakers:
+   - name: Rudra Barad
+     post: Graphics Designer
+     image: https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png
+     session: Basic of GitHub
+   - name: Chirayu Joshi
+     post: Web Expert
+     image: https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png
+     session: Handson session
