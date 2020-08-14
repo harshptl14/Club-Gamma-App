@@ -33,4 +33,20 @@
   venue: Google Meet
   type: Seminar
   registrationLink: https://gce.typeform.com/to/hcRCYBWr
-  speakers:
+  speakers:   
+  - name:
+     post: 
+     image: 
+     session: 
+     linkedin: 
+     twitter: 
+     github: 
+     instagram: 
+   - name: 
+     post:
+     image: 
+     session:
+     linkedin:
+     twitter:
+     github: 
+     instagram:
