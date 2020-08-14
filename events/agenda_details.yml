@@ -1,5 +1,7 @@
 - agenda:
-   - name: Starting with\nGitHub
+   - name: |
+        Starting with
+        GitHub
      time: 09 AM
      duration: 1 hr
      timeduration: 9:00 to 10:00 AM
