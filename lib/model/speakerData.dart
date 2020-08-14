@@ -1,27 +1,14 @@
 class Speaker {
-  var title;
-  var description;
-  var imageLink;
-  var date;
-  var time;
-  var venue;
-  var regLink;
-  Speaker(
-      {this.title,
-      this.description,
-      this.imageLink,
-      this.date,
-      this.time,
-      this.venue,
-      this.regLink});
+  var name;
+  var post;
+  var image;
+  var session;
+  Speaker({this.name, this.post, this.image, this.session});
 
   Speaker.fromJson(Map<String, dynamic> data) {
-    title = data['title'];
-    description = data['description'];
-    imageLink = data['imageLinks'];
-    date = data['date'];
-    time = data['time'];
-    venue = data['venue'];
-    regLink = data['registrationLink'];
+    name = data['name'];
+    post = data['post'];
+    image = data['image'];
+    session = data['session'];
   }
 }

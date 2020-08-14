@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/model/eventModel.dart';
 import 'package:flutter_devfest/model/speakerData.dart';
+import 'package:flutter_devfest/utils/tools.dart';
 
 class CompletedEvent extends StatefulWidget {
   @override
@@ -12,30 +14,30 @@ class CompletedEvent extends StatefulWidget {
 var _homeBloc = HomeBloc();
 var state = _homeBloc.currentState as InHomeState;
 dynamic events = state.eventData;
-dynamic speaker = state.speakerData;
+//dynamic speaker = state.speakerData;
 
 class _CompletedEventState extends State<CompletedEvent> {
   @override
   void initState() {
-    loadSpeaker(speaker).then((value) {
-      setState(() {
-        _list.addAll(value);
-      });
-    });
+    // loadSpeaker(speaker).then((value) {
+    //   setState(() {
+    //     _list.addAll(value);
+    //   });
+    // });
     super.initState();
   }
 
-  List<Speaker> _list = List<Speaker>();
+ // List<Speaker> _list = List<Speaker>();
 
   Future<dynamic> loadEvent(events) async {
     var eventtt = await events;
     return eventtt;
   }
 
-  Future<List<Speaker>> loadSpeaker(speaker) async {
-    List<Speaker> speakerr = speaker;
-    return speakerr;
-  }
+  // Future<List<Speaker>> loadSpeaker(speaker) async {
+  //   List<Speaker> speakerr = speaker;
+  //   return speakerr;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +59,7 @@ class _CompletedEventState extends State<CompletedEvent> {
               return Container(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
-                  child: DateTime.parse(temp.date)
-                              .isBefore(DateTime.now()) ==
+                  child: DateTime.parse(temp.date).isBefore(DateTime.now()) ==
                           true
                       ? InkWell(
                           borderRadius: BorderRadius.circular(8),
@@ -69,21 +70,26 @@ class _CompletedEventState extends State<CompletedEvent> {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
-                                    builder: (context) => HomeFront()));
+                                    builder: (context) => HomeFront(temp)));
                           },
                           child: Ink(
                             height: MediaQuery.of(context).size.height * 0.24,
                             width: MediaQuery.of(context).size.width * 0.88,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey[200],
-                                    blurRadius: 10,
-                                    spreadRadius: 5,
-                                  ),
-                                ]),
+                              color: ConfigBloc().darkModeOn
+                                  ? Tools.hexToColor("#1f2124")
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: !ConfigBloc().darkModeOn
+                                  ? [
+                                      BoxShadow(
+                                        color: Colors.grey[200],
+                                        blurRadius: 10,
+                                        spreadRadius: 5,
+                                      ),
+                                    ]
+                                  : null,
+                            ),
                             child: Row(
                               children: [
                                 ClipRRect(

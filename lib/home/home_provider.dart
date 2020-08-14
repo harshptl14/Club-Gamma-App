@@ -12,7 +12,7 @@ abstract class IHomeProvider {
   // Future<SessionsData> getSessions();
   Future<TeamsData> getTeams();
   getEvent();
-  loadfromAPI();
+  //loadfromAPI();
 }
 
 class HomeProvider implements IHomeProvider {
@@ -40,20 +40,22 @@ class HomeProvider implements IHomeProvider {
     return jsontolist;
   }
 
-  @override
-  loadfromAPI() async {
-    var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/event_details.yml');
-    var list = List<Speaker>();
-    if (res.statusCode == 200) {
-      var eventJson = json.decode(json.encode(loadYaml(res.body)));
-      for (var eventJson in eventJson) {
-        list.add(Speaker.fromJson(eventJson));
-      }
-      return list;
-    }
-    //EventModel ress = EventModel.loadfromAPI(list);
-  }
+  // @override
+  // loadfromAPI() async {
+  //   var res = await http.get(
+  //       'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/speaker_details.yml');
+  //   var list = List<Speaker>();
+  //   if (res.statusCode == 200) {
+  //     var eventJson = json.decode(json.encode(loadYaml(res.body)));
+  //     print('data');
+  //     print(eventJson);
+  //     for (var eventJson in eventJson) {
+  //       list.add(Speaker.fromJson(eventJson));
+  //     }
+  //     return list;
+  //   }
+  //   //EventModel ress = EventModel.loadfromAPI(list);
+  // }
 
   // @override
   // Future<SpeakersData> getSpeakers() async {
@@ -88,5 +90,5 @@ class HomeProvider implements IHomeProvider {
     throw Exception(result.networkServiceResponse.message);
   }
 
- // loadYaml(body) {}
+  // loadYaml(body) {}
 }

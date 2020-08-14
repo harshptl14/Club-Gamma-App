@@ -12,6 +12,7 @@ class Devfest {
   static bool isDebugMode = false;
   static Color contrastColor = Color(0xffD31E3C);
 
+
   // * Url related
   static String baseUrl = "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_devfest/agenda/agenda_page.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/map/map_page.dart';
@@ -13,11 +12,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class HomeFront extends StatelessWidget {
-  String text = '#ClubGamma';
+  var text = '#ClubGamma';
+  var tempData;
+  HomeFront(this.tempData);
+
   List<Widget> devFestTexts(context) => [
         Text(
-          Devfest.welcomeText,
+          tempData.title,
           style: Theme.of(context).textTheme.headline,
           textAlign: TextAlign.center,
         ),
@@ -25,7 +28,7 @@ class HomeFront extends StatelessWidget {
           height: 10,
         ),
         Text(
-          Devfest.descText,
+          tempData.description,
           style: Theme.of(context).textTheme.caption,
           textAlign: TextAlign.center,
         ),
@@ -39,74 +42,6 @@ class HomeFront extends StatelessWidget {
     }
   }
 
-  Widget actions(context) => Wrap(
-        alignment: WrapAlignment.center,
-        spacing: 10.0,
-        children: <Widget>[
-          RaisedButton(
-            child: Text("Agenda"),
-            shape: StadiumBorder(),
-            color: Colors.red,
-            colorBrightness: Brightness.dark,
-            onPressed: () {
-               // Navigator.pushNamed(context, AgendaPage.routeName),
-            } 
-          ),
-          RaisedButton(
-            child: Text("Speakers"),
-            shape: StadiumBorder(),
-            color: Colors.green,
-            colorBrightness: Brightness.dark,
-            onPressed: () {}
-                //Navigator.pushNamed(context, SpeakerPage.routeName),
-          ),
-          RaisedButton(
-            child: Text("Sponsors"),
-            shape: StadiumBorder(),
-            color: Colors.orange,
-            colorBrightness: Brightness.dark,
-            onPressed: () =>
-                Navigator.pushNamed(context, SponsorPage.routeName),
-          ),
-          RaisedButton(
-            child: Text("Team"),
-            shape: StadiumBorder(),
-            color: Colors.purple,
-            colorBrightness: Brightness.dark,
-            onPressed: text.isEmpty
-                ? null
-                : () {
-                    // A builder is used to retrieve the context immediately
-                    // surrounding the RaisedButton.
-                    //
-                    // The context's `findRenderObject` returns the first
-                    // RenderObject in its descendent tree when it's not
-                    // a RenderObjectWidget. The RaisedButton's RenderObject
-                    // has its position and size after it's built.
-                    final RenderBox box = context.findRenderObject();
-                    Share.share(text,
-                        sharePositionOrigin:
-                            box.localToGlobal(Offset.zero) & box.size);
-                  },
-            //Navigator.pushNamed(context, TeamPage.routeName),
-          ),
-          RaisedButton(
-            child: Text("FAQ"),
-            shape: StadiumBorder(),
-            color: Colors.brown,
-            colorBrightness: Brightness.dark,
-            onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
-          ),
-          RaisedButton(
-            child: Text("Locate Us"),
-            shape: StadiumBorder(),
-            color: Colors.blue,
-            colorBrightness: Brightness.dark,
-            onPressed: () => Navigator.pushNamed(context, MapPage.routeName),
-          ),
-        ],
-      );
-
   Widget newActions(context) => Wrap(
         alignment: WrapAlignment.center,
         spacing: 20.0,
@@ -119,29 +54,32 @@ class HomeFront extends StatelessWidget {
             //onPressed: () => Navigator.pushNamed(context, AgendaPage.routeName),
           ),
           ActionCard(
-            icon: Icons.person,
-            color: Colors.green,
-            title: Devfest.speakers_text,
-            onPressed: () {}
-                //Navigator.pushNamed(context, SpeakerPage.routeName),
-          ),
+              icon: Icons.person,
+              color: Colors.green,
+              title: Devfest.speakers_text,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => SpeakerPage(tempData)));
+              }),
           ActionCard(
             icon: Icons.mobile_screen_share,
             color: Colors.amber,
             title: 'Promote',
-            onPressed: (){
-                    // A builder is used to retrieve the context immediately
-                    // surrounding the RaisedButton.
-                    //
-                    // The context's `findRenderObject` returns the first
-                    // RenderObject in its descendent tree when it's not
-                    // a RenderObjectWidget. The RaisedButton's RenderObject
-                    // has its position and size after it's built.
-                    final RenderBox box = context.findRenderObject();
-                    Share.share(text,
-                        sharePositionOrigin:
-                            box.localToGlobal(Offset.zero) & box.size);
-                  },
+            onPressed: () {
+              // A builder is used to retrieve the context immediately
+              // surrounding the RaisedButton.
+              //
+              // The context's `findRenderObject` returns the first
+              // RenderObject in its descendent tree when it's not
+              // a RenderObjectWidget. The RaisedButton's RenderObject
+              // has its position and size after it's built.
+              final RenderBox box = context.findRenderObject();
+              Share.share(text,
+                  sharePositionOrigin:
+                      box.localToGlobal(Offset.zero) & box.size);
+            },
             //Navigator.pushNamed(context, TeamPage.routeName),
           ),
           ActionCard(
@@ -216,8 +154,8 @@ class HomeFront extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DevScaffold(
-          title: 'Event1',
-          body:SingleChildScrollView(
+      title: tempData.venue,
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -225,7 +163,8 @@ class HomeFront extends StatelessWidget {
             children: <Widget>[
               ImageCard(
                 img: ConfigBloc().darkModeOn
-                    ? Devfest.banner_dark
+                    ? Devfest.banner_light
+                    //Image.network(tempData.imagelink)
                     : Devfest.banner_light,
               ),
               SizedBox(
@@ -245,7 +184,8 @@ class HomeFront extends StatelessWidget {
               ),
               Text(
                 Devfest.app_version,
-                style: Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
+                style:
+                    Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
               )
             ],
           ),

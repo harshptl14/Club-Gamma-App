@@ -23,7 +23,7 @@ class UnHomeState extends HomeState {
 
 /// Initialized
 class InHomeState extends HomeState {
-  final dynamic speakerData;
+ // final dynamic speakerData;
   final dynamic eventData;
   // final SpeakersData speakersData;
   // final SessionsData sessionsData;
@@ -31,12 +31,13 @@ class InHomeState extends HomeState {
 
   InHomeState({
     @required this.eventData,
-    @required this.speakerData,
+  //  @required this.speakerData,
     // @required this.speakersData,
     // @required this.sessionsData,
     @required this.teamsData
   }) : super([
-          eventData, speakerData,
+          eventData, 
+          //speakerData,
           //speakersData, sessionsData, 
           teamsData
         ]);
@@ -46,7 +47,7 @@ class InHomeState extends HomeState {
   @override
   HomeState getStateCopy() {
     return InHomeState(
-      speakerData: this.speakerData,
+      //speakerData: this.speakerData,
       eventData: this.eventData,
       // speakersData: this.speakersData,
       // sessionsData: this.sessionsData,
