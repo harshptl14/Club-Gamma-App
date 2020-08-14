@@ -15,7 +15,7 @@
    - name: |
         Starting with
         GitHub
-     time: 10:05 AM
+     time:
      duration: 1 hr
      timeduration: 10:00 to 11:00 AM
      speaker: Rudra Barad
@@ -28,7 +28,7 @@
    - name: |
         Functions of
         GitHub
-     time: 11:05 AM
+     time: 
      duration: 1 hr
      timeduration: 11:05 to 11:59 AM
      speaker: Chirayu Joshi
