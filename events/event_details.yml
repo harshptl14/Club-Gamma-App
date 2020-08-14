@@ -5,7 +5,6 @@
   date: 2020-08-22
   time: 9:00 AM
   venue: Google Meet
-  type: Workshop
   registrationLink: https://gce.typeform.com/to/hcRCYBWr
   speakers:
    - name: Rudra Barad
@@ -26,12 +25,11 @@
      instagram: https://www.instagram.com/chirayujoshi1189/
 - title: Chit chat with facebook intern
   event_type: Seminar
-  description: It's a 3 hours hands on workshop which will be conducted by our club for all students to learn Git & GitHub so that they can collaborate on professional projects with other developers
+  description: Friendly chitchat with the facebook intern that how she got an internship in Facebook and how we should prepare for it.
   imageLinks: https://drive.google.com/uc?export=view&id=1QhMncrImQXgaSDBtPUwRSf3AifeEwaB3
-  date: 2020-09-23
+  date: 2020-09-02
   time: 9:00 AM
   venue: Google Meet
-  type: Seminar
   registrationLink: https://gce.typeform.com/to/hcRCYBWr
   speakers:   
    - name:
