@@ -5,9 +5,8 @@ import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/find_devfest/find_devfest_page.dart';
 import 'package:flutter_devfest/home/home_page.dart';
-import 'package:flutter_devfest/map/map_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 
 class ConfigPage extends StatefulWidget {
   static const String routeName = "/";
@@ -66,9 +65,7 @@ class _ConfigPageState extends State<ConfigPage> {
             routes: {
               HomePage.routeName: (context) => HomePage(),
               SponsorPage.routeName: (context) => SponsorPage(),
-              FaqPage.routeName: (context) => FaqPage(),
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
-              MapPage.routeName: (context) => MapPage(),
             },
           );
         },

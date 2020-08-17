@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:meta/meta.dart';
 
 @immutable

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 
 class ErrorDialog extends StatelessWidget {
   final Widget child;

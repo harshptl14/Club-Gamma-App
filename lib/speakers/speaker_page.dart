@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -95,6 +95,7 @@ class SpeakerPage extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                       speakerData.speaker[index].name,
+                                      // ignore: deprecated_member_use
                                       style: Theme.of(context).textTheme.title,
                                     ),
                                     SizedBox(
@@ -114,6 +115,7 @@ class SpeakerPage extends StatelessWidget {
                                 ),
                                 Text(
                                   speakerData.speaker[index].post,
+                                  // ignore: deprecated_member_use
                                   style: Theme.of(context).textTheme.subtitle,
                                 ),
                                 SizedBox(

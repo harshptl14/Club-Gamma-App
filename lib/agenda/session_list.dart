@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/agenda/session_detail.dart';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 
 class SessionList extends StatelessWidget {
@@ -9,271 +9,295 @@ class SessionList extends StatelessWidget {
   SessionList({Key key, @required this.allSessions}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: ListView.builder(
-        // shrinkWrap: false,
-        itemCount: allSessions.agendaList.length,
-        itemBuilder: (c, index) {
-          // return Text("sdd");
-          return Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              //mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 13, right: 13),
-                      child: Text(
-                        allSessions.agendaList[index].time != null
-                            ? allSessions.agendaList[index].time
-                            : '09 AM',
-                        style: TextStyle(
-                            color: allSessions.agendaList[index].time != null
-                                ? ClubGamma.contrastColor
-                                : Colors.transparent,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-
-                    allSessions.agendaList[index].speaker != null
-                        ? Container(
-                            margin: EdgeInsets.only(left: 17, right: 15),
-                            color: Color(0xffD71E3C),
-                            width: 2,
-                            height: MediaQuery.of(context).size.height * 0.21,
-                            //150,
-                          )
-                        : Container(
-                            margin: EdgeInsets.only(left: 17, right: 15),
-                            color: Color(0xffD71E3C),
-                            width: 2,
-                            height: MediaQuery.of(context).size.height * 0.09,
-                          )
-
-                    // Container(
-                    //   margin: EdgeInsets.only(left: 25, right: 25),
-                    //   child: Text(allSessions.agendaList[index].duration),
-                    // ),
-                  ],
-                ),
-                allSessions.agendaList[index].speaker != null
-                    ? Padding(
-                        padding: const EdgeInsets.only(top: 2),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(8),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => SessionDetail(
-                                          session:
-                                              allSessions.agendaList[index],
-                                        )));
-                          },
-                          child: Ink(
-                            height: MediaQuery.of(context).size.height * 0.2049,
-                            width: MediaQuery.of(context).size.width * 0.75,
-                            decoration: BoxDecoration(
-                              color: ConfigBloc().darkModeOn
-                                  ? Tools.hexToColor("#1f2124")
-                                  //: Colors.grey.shade100,
-                                  : Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: !ConfigBloc().darkModeOn
-                                  ? [
-                                      BoxShadow(
-                                          color:
-                                              Colors.black.withOpacity(0.075),
-                                          blurRadius: 7,
-                                          offset: Offset(
-                                            7,
-                                            7,
-                                          )),
-                                      BoxShadow(
-                                          color:
-                                              Colors.black.withOpacity(0.015),
-                                          blurRadius: 7,
-                                          offset: Offset(
-                                            -7,
-                                            -7,
-                                          )),
-                                    ]
-                                  : null,
+    return allSessions.agendaList[0].time != null
+        ? Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: ListView.builder(
+              // shrinkWrap: false,
+              itemCount: allSessions.agendaList.length,
+              itemBuilder: (c, index) {
+                // return Text("sdd");
+                return Container(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 13, right: 13),
+                            child: Text(
+                              allSessions.agendaList[index].time != null
+                                  ? allSessions.agendaList[index].time
+                                  : '09 AM',
+                              style: TextStyle(
+                                  color:
+                                      allSessions.agendaList[index].time != null
+                                          ? ClubGamma.contrastColor
+                                          : Colors.transparent,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 12,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+
+                          allSessions.agendaList[index].speaker != null
+                              ? Container(
+                                  margin: EdgeInsets.only(left: 17, right: 15),
+                                  color: Color(0xffD71E3C),
+                                  width: 2,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.21,
+                                  //150,
+                                )
+                              : Container(
+                                  margin: EdgeInsets.only(left: 17, right: 15),
+                                  color: Color(0xffD71E3C),
+                                  width: 2,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.09,
+                                )
+
+                          // Container(
+                          //   margin: EdgeInsets.only(left: 25, right: 25),
+                          //   child: Text(allSessions.agendaList[index].duration),
+                          // ),
+                        ],
+                      ),
+                      allSessions.agendaList[index].speaker != null
+                          ? Padding(
+                              padding: const EdgeInsets.only(top: 2),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(8),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => SessionDetail(
+                                                session: allSessions
+                                                    .agendaList[index],
+                                              )));
+                                },
+                                child: Ink(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.2049,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.75,
+                                  decoration: BoxDecoration(
+                                    color: ConfigBloc().darkModeOn
+                                        ? Tools.hexToColor("#1f2124")
+                                        //: Colors.grey.shade100,
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: !ConfigBloc().darkModeOn
+                                        ? [
+                                            BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.075),
+                                                blurRadius: 7,
+                                                offset: Offset(
+                                                  7,
+                                                  7,
+                                                )),
+                                            BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.015),
+                                                blurRadius: 7,
+                                                offset: Offset(
+                                                  -7,
+                                                  -7,
+                                                )),
+                                          ]
+                                        : null,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                padding:
+                                                    EdgeInsets.only(left: 20),
+                                                // height: 20,
+                                                // width: 80,
+
+                                                child: Text(
+                                                  '${allSessions.agendaList[index].timeduration}',
+                                                  style: TextStyle(
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Container(
+                                                padding:
+                                                    EdgeInsets.only(left: 20),
+
+                                                height: 55,
+                                                //     width: 80,
+
+                                                child: Text(
+                                                  '${allSessions.agendaList[index].name}',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: 95,
+                                          ),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color:
+                                                      ClubGamma.contrastColor,
+                                                  style: BorderStyle.solid),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(30.0),
+                                              child: Hero(
+                                                tag: allSessions
+                                                    .agendaList[index].name,
+                                                child: Image.network(
+                                                  allSessions
+                                                      .agendaList[index].photo,
+                                                  fit: BoxFit.contain,
+                                                ),
+                                                //  ),
+                                              ),
+                                            ),
+                                            height: 60,
+                                            width: 60,
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 20),
+                                        child: Text(
+                                          allSessions.agendaList[index].speaker,
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 13),
+                                          textAlign: TextAlign.start,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 3,
+                                      ),
+                                      Divider(
+                                        color: ClubGamma.contrastColor,
+                                      ),
+                                      Container(
+                                        //alignment: Alignment.center,
+                                        padding: EdgeInsets.only(left: 20),
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            allSessions
+                                                .agendaList[index].session,
+                                            style: TextStyle(
+                                                color: ClubGamma.contrastColor,
+                                                fontSize: 15),
+                                            textAlign: TextAlign.start,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                              ),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(
+                                top: 2,
+                              ),
+                              child: Ink(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.09,
+                                width: MediaQuery.of(context).size.width * 0.75,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffffb3b3),
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: !ConfigBloc().darkModeOn
+                                      ? [
+                                          BoxShadow(
+                                              color: Colors.black
+                                                  .withOpacity(0.075),
+                                              blurRadius: 7,
+                                              //spreadRadius: 1,
+                                              offset: Offset(
+                                                7,
+                                                7,
+                                              )),
+                                          BoxShadow(
+                                              color: Colors.black
+                                                  .withOpacity(0.015),
+                                              blurRadius: 7,
+                                              //spreadRadius: -1,
+                                              offset: Offset(
+                                                -7,
+                                                -7,
+                                              )),
+                                        ]
+                                      : null,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only(left: 20),
-                                          // height: 20,
-                                          // width: 80,
-
-                                          child: Text(
-                                            '${allSessions.agendaList[index].timeduration}',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 20),
-
-                                          height: 55,
-                                          //     width: 80,
-
-                                          child: Text(
-                                            '${allSessions.agendaList[index].name}',
-                                            style: TextStyle(
-                                              fontSize: 17,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 95,
-                                    ),
                                     Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: ClubGamma.contrastColor,
-                                            style: BorderStyle.solid),
-                                        borderRadius: BorderRadius.circular(30),
+                                        child: Text(
+                                      allSessions
+                                          .agendaList[index].timeduration,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: !ConfigBloc().darkModeOn
+                                            ? Colors.white
+                                            : Colors.black,
                                       ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                        child: Hero(
-                                          tag: allSessions
-                                              .agendaList[index].name,
-                                          child: Image.network(
-                                            allSessions.agendaList[index].photo,
-                                            fit: BoxFit.contain,
-                                          ),
-                                          //  ),
-                                        ),
+                                    )),
+                                    Container(
+                                        child: Text(
+                                      allSessions.agendaList[index].name,
+                                      style: TextStyle(
+                                        color: ClubGamma.contrastColor,
                                       ),
-                                      height: 60,
-                                      width: 60,
-                                    ),
+                                    )),
                                   ],
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 20),
-                                  child: Text(
-                                    allSessions.agendaList[index].speaker,
-                                    style: TextStyle(
-                                        color: Colors.grey, fontSize: 13),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Divider(
-                                  color: ClubGamma.contrastColor,
-                                ),
-                                Container(
-                                  //alignment: Alignment.center,
-                                  padding: EdgeInsets.only(left: 20),
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      allSessions.agendaList[index].session,
-                                      style: TextStyle(
-                                          color: ClubGamma.contrastColor,
-                                          fontSize: 15),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.only(
-                          top: 2,
-                        ),
-                        child: Ink(
-                          height: MediaQuery.of(context).size.height * 0.09,
-                          width: MediaQuery.of(context).size.width * 0.75,
-                          decoration: BoxDecoration(
-                            color: Color(0xffffb3b3),
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: !ConfigBloc().darkModeOn
-                                ? [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.075),
-                                        blurRadius: 7,
-                                        //spreadRadius: 1,
-                                        offset: Offset(
-                                          7,
-                                          7,
-                                        )),
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.015),
-                                        blurRadius: 7,
-                                        //spreadRadius: -1,
-                                        offset: Offset(
-                                          -7,
-                                          -7,
-                                        )),
-                                  ]
-                                : null,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  child: Text(
-                                allSessions.agendaList[index].timeduration,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: !ConfigBloc().darkModeOn
-                                      ? Colors.white
-                                      : Colors.black,
-                                ),
-                              )),
-                              Container(
-                                  child: Text(
-                                allSessions.agendaList[index].name,
-                                style: TextStyle(
-                                  color: ClubGamma.contrastColor,
-                                ),
-                              )),
-                            ],
-                          ),
-                        ),
-                      ),
-              ],
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
+        : Center(
+            child: Container(
+              alignment: Alignment.center,
+              child: Text('Coming Soon...'),
             ),
           );
-        },
-      ),
-    );
   }
 }

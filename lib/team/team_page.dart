@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TeamPage extends StatelessWidget {

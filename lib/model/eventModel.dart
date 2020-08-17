@@ -7,10 +7,11 @@ class EventModel {
   var venue;
   var type;
   var regLink;
+  var feedbackLink;
   List<Speaker> speaker;
 
   EventModel(this.title, this.description, this.imageLink, this.date, this.time,
-      this.venue, this.type, this.regLink, this.speaker);
+      this.venue, this.type, this.regLink, this.feedbackLink,this.speaker);
 
   EventModel.fromJson(Map<String, dynamic> data) {
     title = data['title'];
@@ -21,7 +22,7 @@ class EventModel {
     venue = data['venue'];
     type = data['event_type'];
     regLink = data['registrationLink'];
-    //speaker = data['speakers'];
+    feedbackLink = data['feedbackLink'];
     var list = data['speakers'] as List;
     speaker = list.map((i) => Speaker.fromJson(i)).toList();
   }

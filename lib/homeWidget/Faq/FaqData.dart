@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
-class EventGallery {
+class EventFaq {
   final String name;
   final String detail;
 
-  const EventGallery({
+  const EventFaq({
     this.name,
     this.detail,
   });
@@ -12,22 +10,22 @@ class EventGallery {
 
 const List data = [
   {
-    'name' : 'What is club gamma? What is does',
-    'detail' : 'Club gamma is a community of a student, in which they share the knowledge'
+    'name' : 'What is Club gamma? What is does',
+    'detail' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
   },
 
   {
-    'name' : 'What is club gamma? What is does',
-    'detail' : 'Club gamma is a community of a student, in which they share the knowledge'
+    'name' : 'Is Club Gamma a profitable organization?',
+    'detail' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
   },
 
   {
-    'name' : 'What is club gamma? What is does',
-    'detail' : 'Club gamma is a community of a student, in which they share the knowledge'
+    'name' : 'Is there also a website for ClubGamma?',
+    'detail' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
   },
 
   {
-    'name' : 'What is club gamma? What is does',
-    'detail' : 'Club gamma is a community of a student, in which they share the knowledge'
+    'name' : 'Why Club Gamma?',
+    'detail' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
   }
 ];

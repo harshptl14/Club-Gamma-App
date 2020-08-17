@@ -5,7 +5,7 @@ import 'package:flutter_devfest/config/config_event.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
 import 'package:flutter_devfest/homeWidget/aboutUs.dart';
 import 'package:flutter_devfest/team/team_page.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
@@ -61,7 +61,7 @@ class _DevScaffoldState extends State<DevScaffold> {
               ),
               IconButton(
                 onPressed: () => Share.share(
-                    "Download the new DevFest App and share with your tech friends.\nPlayStore -  http://bit.ly/2GDr18N"),
+                    "Download the new ClubGamma App and share with your tech friends.\nPlayStore -"),
                 icon: Icon(
                   Icons.share,
                   size: 20,
@@ -88,98 +88,88 @@ class _DevScaffoldState extends State<DevScaffold> {
 
   void _onButtonPressed() {
     showModalBottomSheet(
-        isScrollControlled: true,
-        isDismissible: true,
-        enableDrag: true,
-        elevation: 10,
-         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0)),
-        ),
-        context: context,
-        builder: (context) {
-          return Container(
-              decoration: BoxDecoration(
-                  borderRadius: new BorderRadius.only(
-                      topLeft: const Radius.circular(10.0),
-                      topRight: const Radius.circular(10.0))),
-              padding: EdgeInsets.all(5),
-              height: MediaQuery.of(context).size.height * 0.33,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                
-                  SizedBox(
-                    height: 10,
-                  ),
-                 
-                      ActionCard(
-                          icon: Icons.photo_album,
-                          color: Colors.purple,
-                          title: 'Gallery',
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => Timeline()));
-                          }),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ActionCard(
-                          icon: Icons.question_answer,
-                          color: Colors.red,
-                          title: 'FAQ',
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => FaqActivity()));
-                          }
-                          ),
-                  
-                  SizedBox(height: 10),
-                
-                      ActionCard(
-                          icon: Icons.group,
-                          color: Colors.yellow,
-                          title: 'Team',
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => TeamPage()));
-                          }
-                          ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ActionCard(
-                          icon: Icons.event_available,
-                          color: Colors.green,
-                          title: 'Upvote Event',
-                          onPressed: () {}
-                          ),
-
-                          SizedBox(
-                        height: 10,
-                      ),
-
-                          ActionCard(
-                          icon: Icons.info_outline,
-                          color: Colors.green,
-                          title: 'Info',
-                          
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => AboutUs()));
-                          }
-                          ),
-                  
-                ],
-              ));
-        });
+      isScrollControlled: true,
+      isDismissible: true,
+      enableDrag: true,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0)),
+      ),
+      context: context,
+      builder: (context) {
+        return Container(
+          decoration: BoxDecoration(
+              borderRadius: new BorderRadius.only(
+                  topLeft: const Radius.circular(10.0),
+                  topRight: const Radius.circular(10.0))),
+          padding: EdgeInsets.all(5),
+          height: MediaQuery.of(context).size.height * 0.33,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              ActionCard(
+                  icon: Icons.photo_album,
+                  color: Colors.purple,
+                  title: 'Gallery',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => Timeline()));
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              ActionCard(
+                  icon: Icons.question_answer,
+                  color: Colors.red,
+                  title: 'FAQ',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => FaqActivity()));
+                  }),
+              SizedBox(height: 10),
+              ActionCard(
+                  icon: Icons.group,
+                  color: Colors.yellow,
+                  title: 'Team',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => TeamPage()));
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              ActionCard(
+                  icon: Icons.event_available,
+                  color: Colors.green,
+                  title: 'Upvote Event',
+                  onPressed: () {}),
+              SizedBox(
+                height: 10,
+              ),
+              ActionCard(
+                icon: Icons.info_outline,
+                color: Colors.green,
+                title: 'Info',
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => AboutUs()));
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -198,13 +188,12 @@ class ActionCard extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.05,
         width: MediaQuery.of(context).size.width,
-       
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only( top: 5, left: 14),
+              padding: EdgeInsets.only(top: 5, left: 14),
               child: Icon(
                 icon,
                 color: ClubGamma.contrastColor,
@@ -212,13 +201,13 @@ class ActionCard extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top:8, left: 14),
+              padding: EdgeInsets.only(top: 8, left: 14),
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.title.copyWith(
                       fontSize: 14,
-                      color:  ConfigBloc().darkModeOn
-               ? Colors.white : Colors.black,
+                      color:
+                          ConfigBloc().darkModeOn ? Colors.white : Colors.black,
                     ),
               ),
             ),

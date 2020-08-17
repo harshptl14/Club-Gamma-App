@@ -2,7 +2,7 @@ import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/photos/detailSScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 // const String testDevice = '';

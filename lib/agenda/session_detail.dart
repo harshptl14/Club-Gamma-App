@@ -1,10 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/utils/tools.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SessionDetail extends StatelessWidget {
   static const String routeName = "/session_detail";

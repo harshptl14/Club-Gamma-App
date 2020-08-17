@@ -54,7 +54,7 @@ class InHomeState extends HomeState {
 
 class ErrorHomeState extends HomeState {
   String errorMessage =
-      'There is an Problem! Can you please check your Internet connection?!';
+      'There is a Problem! Can you please check your Internet connection?!';
 
   ErrorHomeState();
 

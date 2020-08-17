@@ -4,12 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_devfest/home/team.dart';
 import 'package:flutter_devfest/network/i_client.dart';
 import 'package:flutter_devfest/utils/dependency_injection.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:yaml/yaml.dart';
 
 abstract class IHomeProvider {
-  // Future<SpeakersData> getSpeakers();
-  // Future<SessionsData> getSessions();
   Future<TeamsData> getTeams();
   getEvent();
   loadfromAPI();
@@ -78,28 +76,6 @@ class HomeProvider implements IHomeProvider {
     }
   }
 
-  // @override
-  // Future<SpeakersData> getSpeakers() async {
-  //   var result = await _client.getAsync(kConstGetSpeakersUrl);
-  //   if (result.networkServiceResponse.success) {
-  //     SpeakersData res = SpeakersData.fromJson(result.mappedResult);
-  //     return res;
-  //   }
-
-  //   throw Exception(result.networkServiceResponse.message);
-  // }
-
-  // @override
-  // Future<SessionsData> getSessions() async {
-  //   var result = await _client.getAsync(kConstGetSessionsUrl);
-  //   if (result.networkServiceResponse.success) {
-  //     SessionsData res = SessionsData.fromJson(result.mappedResult);
-  //     return res;
-  //   }
-
-  //   throw Exception(result.networkServiceResponse.message);
-  // }
-
   @override
   Future<TeamsData> getTeams() async {
     var result = await _client.getAsync(kConstGetTeamsUrl);
@@ -110,11 +86,5 @@ class HomeProvider implements IHomeProvider {
 
     throw Exception(result.networkServiceResponse.message);
   }
-
-  // loadYaml(body) {}
-  // @override
-  // dispose() {
-  //   super.dispose();
-  // }
 
 }

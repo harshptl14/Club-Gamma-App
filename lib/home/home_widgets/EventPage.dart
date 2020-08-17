@@ -4,7 +4,9 @@ import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:flutter_devfest/model/eventModel.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class EventPage extends StatefulWidget {
   @override
@@ -46,7 +48,9 @@ class _EventPageState extends State<EventPage> {
       future: loadEvent(events),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: SpinKitWanderingCubes(
+                  color: ClubGamma.contrastColor,
+                ),);
         } else if (!snapshot.hasData) {
           return Center(
             child: Text('No data'),
@@ -65,8 +69,7 @@ class _EventPageState extends State<EventPage> {
                       ? InkWell(
                           borderRadius: BorderRadius.circular(8),
                           onTap: () {
-                            // print("photos");
-                            // print(data[index]["doodle"].length);
+                            
 
                             Navigator.push(
                                 context,

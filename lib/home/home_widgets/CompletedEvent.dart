@@ -4,7 +4,9 @@ import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:flutter_devfest/model/eventModel.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CompletedEvent extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ dynamic agenda = state.agendaData;
 class _CompletedEventState extends State<CompletedEvent> {
   @override
   void initState() {
-   loadSpeaker(agenda).then((value) {
+    loadSpeaker(agenda).then((value) {
       setState(() {
         _list.addAll(value);
       });
@@ -38,13 +40,18 @@ class _CompletedEventState extends State<CompletedEvent> {
     List<Agenda> agendaa = speaker;
     return agendaa;
   }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: loadEvent(events),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return Center(
+            child: SpinKitWanderingCubes(
+              color: ClubGamma.contrastColor,
+            ),
+          );
         } else if (!snapshot.hasData) {
           return Center(
             child: Text('No data'),
@@ -69,7 +76,8 @@ class _CompletedEventState extends State<CompletedEvent> {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
-                                    builder: (context) => HomeFront(temp, _list[index])));
+                                    builder: (context) =>
+                                        HomeFront(temp, _list[index])));
                           },
                           child: Ink(
                             height: MediaQuery.of(context).size.height * 0.24,
@@ -81,17 +89,18 @@ class _CompletedEventState extends State<CompletedEvent> {
                               borderRadius: BorderRadius.circular(8),
                               boxShadow: !ConfigBloc().darkModeOn
                                   ? [
-                                       BoxShadow(
-                                          color: Colors.black.withOpacity(0.075),
+                                      BoxShadow(
+                                          color:
+                                              Colors.black.withOpacity(0.075),
                                           blurRadius: 7,
                                           //spreadRadius: 1,
                                           offset: Offset(
                                             7,
                                             7,
                                           )),
-
                                       BoxShadow(
-                                          color: Colors.black.withOpacity(0.015),
+                                          color:
+                                              Colors.black.withOpacity(0.015),
                                           blurRadius: 7,
                                           //spreadRadius: -1,
                                           offset: Offset(

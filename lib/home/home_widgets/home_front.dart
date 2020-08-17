@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/agenda/agenda_page.dart';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/faq/faq_page.dart';
-import 'package:flutter_devfest/map/map_page.dart';
 import 'package:flutter_devfest/speakers/speaker_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/universal/image_card.dart';
-import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
@@ -74,13 +71,6 @@ class HomeFront extends StatelessWidget {
             color: ClubGamma.contrastColor,
             title: 'Promote',
             onPressed: () {
-              // A builder is used to retrieve the context immediately
-              // surrounding the RaisedButton.
-              //
-              // The context's `findRenderObject` returns the first
-              // RenderObject in its descendent tree when it's not
-              // a RenderObjectWidget. The RaisedButton's RenderObject
-              // has its position and size after it's built.
               final RenderBox box = context.findRenderObject();
               Share.share(text,
                   sharePositionOrigin:
@@ -100,14 +90,15 @@ class HomeFront extends StatelessWidget {
             color: ClubGamma.contrastColor,
             title: ClubGamma.register_text,
             onPressed: () async => await _launchURL(
-                "https://docs.google.com/forms/d/e/1FAIpQLScDi6fludGDQvyLw4jzgtw4WimqTnFaKVLoETt6Hea4WMIiUw/closedform"),
+                tempData.regLink),
             //Navigator.pushNamed(context, FaqPage.routeName),
           ),
           ActionCard(
-            icon: Icons.map,
+            icon: Icons.feedback,
             color: ClubGamma.contrastColor,
-            title: ClubGamma.map_text,
-            onPressed: () => Navigator.pushNamed(context, MapPage.routeName),
+            title: 'Feedback',
+            onPressed: ()async => await _launchURL(
+                tempData.feedbackLink),
           )
         ],
       );
@@ -212,12 +203,6 @@ class HomeFront extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              // ImageCard(
-              //   img: ConfigBloc().darkModeOn
-              //       ? ClubGamma.banner_light
-              //       //Image.network(tempData.imagelink)
-              //       : ClubGamma.banner_light,
-              // ),
 
               imagecard(context, tempData.imageLink),
               SizedBox(
