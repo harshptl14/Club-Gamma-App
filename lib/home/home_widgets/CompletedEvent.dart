@@ -81,11 +81,23 @@ class _CompletedEventState extends State<CompletedEvent> {
                               borderRadius: BorderRadius.circular(8),
                               boxShadow: !ConfigBloc().darkModeOn
                                   ? [
+                                       BoxShadow(
+                                          color: Colors.black.withOpacity(0.075),
+                                          blurRadius: 7,
+                                          //spreadRadius: 1,
+                                          offset: Offset(
+                                            7,
+                                            7,
+                                          )),
+
                                       BoxShadow(
-                                        color: Colors.grey[200],
-                                        blurRadius: 10,
-                                        spreadRadius: 5,
-                                      ),
+                                          color: Colors.black.withOpacity(0.015),
+                                          blurRadius: 7,
+                                          //spreadRadius: -1,
+                                          offset: Offset(
+                                            -7,
+                                            -7,
+                                          )),
                                     ]
                                   : null,
                             ),
@@ -184,7 +196,7 @@ class _CompletedEventState extends State<CompletedEvent> {
                                             ),
                                           ),
                                           decoration: BoxDecoration(
-                                            color: Color(0xffffcccc),
+                                            color: Color(0xffffb3b3),
                                             borderRadius:
                                                 BorderRadius.circular(25),
                                           ),

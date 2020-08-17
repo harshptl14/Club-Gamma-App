@@ -148,7 +148,7 @@ class _TimelineeState extends State<Timelinee> {
                       Container(
                         padding: EdgeInsets.only(top: 10, left: 20),
                         child: Text(
-                          'EVENT ${index + 1}',
+                          data[index]['type'],
                           style:
                               TextStyle(color: Color(0xffD31E3C), fontSize: 13),
                           textAlign: TextAlign.start,

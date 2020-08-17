@@ -12,9 +12,11 @@ class ClubGamma {
   static bool isDebugMode = false;
   static Color contrastColor = Color(0xffD31E3C);
 
-
   // * Url related
-  static String baseUrl = "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
+  static String baseUrl =
+      "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
+
+  //static String clubGammaBanner = "https://raw.githubusercontent.com/clubgamma/assets/master/Wallpapers/4k-Wallpaper.png?token=ANS54QGJR6ER5JC7WMW54B27HJDKY";
 
   static checkDebug() {
     assert(() {
@@ -37,6 +39,7 @@ class ClubGamma {
   static const String home_img = "assets/images/home_img.jpeg";
   static const String banner_light = "assets/images/gitGithub.jpeg";
   static const String banner_dark = "assets/images/gitGithub.jpeg";
+  static const String banner = "assets/images/banner.png";
 
   //*  Texts
   static const String welcomeText = "introduction to Git and github";
@@ -58,13 +61,16 @@ class ClubGamma {
       "Please update your app for seamless experience.";
   static const String checkNetText =
       "It seems like your internet connection is not active.";
+  static const String whatIsClubGamma = "What is ClubGamma?";
+  static const String aboutusText =
+      "Club Gamma is official student tech community under GitHub campus Expert, it is to enrich the Technology enthusiastic students on the campuses, ranging from newbie coders to experts in industry and other academic domains. Club arranges various workshops, seminars, hands-on programs, personality building lectures by the best people in domain to benefit the entire student community.";
 
   //* ActionTexts
   static const String agenda_text = "Agenda";
   static const String speakers_text = "Speakers";
   static const String team_text = "Team";
   static const String sponsor_text = "Sponsors";
-  static const String faq_text = "FAQ";
+  static const String register_text = "Register";
   static const String map_text = "Locate Us";
 
   //* Preferences

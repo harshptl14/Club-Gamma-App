@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/home/speaker.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
+import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -106,7 +107,7 @@ class TeamPage extends StatelessWidget {
                                 duration: Duration(seconds: 1),
                                 width: MediaQuery.of(context).size.width * 0.2,
                                 height: 5,
-                                color: Tools.multiColors[Random().nextInt(4)],
+                                color: ClubGamma.contrastColor,
                               ),
                             ],
                           ),

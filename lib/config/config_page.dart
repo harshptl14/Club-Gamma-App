@@ -1,14 +1,12 @@
+import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_devfest/agenda/agenda_page.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/find_devfest/find_devfest_page.dart';
 import 'package:flutter_devfest/home/home_page.dart';
 import 'package:flutter_devfest/map/map_page.dart';
-import 'package:flutter_devfest/speakers/speaker_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
-import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 
 class ConfigPage extends StatefulWidget {
@@ -32,8 +30,11 @@ class _ConfigPageState extends State<ConfigPage> {
         ClubGamma.prefs.getBool(ClubGamma.darkModePref) ?? false;
   }
 
+ 
+
   @override
   Widget build(BuildContext context) {
+    DataConnectionStatus status = DataConnectionStatus.connected;
     return BlocProvider(
       builder: (context) => configBloc,
       child: BlocBuilder<ConfigBloc, ConfigState>(
@@ -50,6 +51,7 @@ class _ConfigPageState extends State<ConfigPage> {
               cardColor: configBloc.darkModeOn ? Colors.black : Colors.white,
               canvasColor:
                   configBloc.darkModeOn ? Colors.black : Colors.grey[50],
+
               brightness:
                   configBloc.darkModeOn ? Brightness.dark : Brightness.light,
               buttonTheme: Theme.of(context).buttonTheme.copyWith(
@@ -63,10 +65,7 @@ class _ConfigPageState extends State<ConfigPage> {
             home: HomePage(),
             routes: {
               HomePage.routeName: (context) => HomePage(),
-              //SpeakerPage.routeName: (context) => SpeakerPage(),
-              //AgendaPage.routeName: (context) => AgendaPage(),
               SponsorPage.routeName: (context) => SponsorPage(),
-              //TeamPage.routeName: (context) => TeamPage(),
               FaqPage.routeName: (context) => FaqPage(),
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
               MapPage.routeName: (context) => MapPage(),

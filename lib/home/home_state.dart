@@ -57,15 +57,15 @@ class InHomeState extends HomeState {
 }
 
 class ErrorHomeState extends HomeState {
-  final String errorMessage;
+   String errorMessage = 'There is an Problem! Can you please check your Internet connection?!';
 
-  ErrorHomeState(this.errorMessage);
+  ErrorHomeState();
 
-  @override
-  String toString() => 'ErrorHomeState';
+  // @override
+  // String toString() => 'ErrorHomeState';
 
   @override
   HomeState getStateCopy() {
-    return ErrorHomeState(this.errorMessage);
+    return ErrorHomeState();
   }
 }

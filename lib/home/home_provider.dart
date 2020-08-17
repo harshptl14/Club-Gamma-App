@@ -18,12 +18,12 @@ abstract class IHomeProvider {
 class HomeProvider implements IHomeProvider {
   IClient _client;
 
-  static final String kConstGetSpeakersUrl =
-      "${ClubGamma.baseUrl}/speaker-kol.json";
+  static final String kConstGetEventsUrl =
+      "${ClubGamma.baseUrl}/event_details.yml";
 
   //! Not Working
   static final String kConstGetSessionsUrl =
-      "${ClubGamma.baseUrl}/session-kol.json";
+      "${ClubGamma.baseUrl}/agenda_details.yml";
 
   //! Not Working
   static final String kConstGetTeamsUrl = "${ClubGamma.baseUrl}/team-kol.json";
@@ -34,16 +34,32 @@ class HomeProvider implements IHomeProvider {
 
   @override
   getEvent() async {
-    var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/event_details.yml');
-    var jsontolist = json.decode(json.encode(loadYaml(res.body)));
-    return jsontolist;
+    // DataConnectionStatus status = await checkInternet();
+    // if (status == DataConnectionStatus.connected) {
+      var res = await http.get(
+          'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/event_details.yml');
+      var result = await _client.getAsync(kConstGetEventsUrl);
+      if (res.statusCode == 200) {
+        var jsontolist = json.decode(json.encode(loadYaml(res.body)));
+        return jsontolist;
+      } else {
+        throw Exception(result.networkServiceResponse.message);
+      }
+    // } else {
+    //   showDialog(
+    //     context: context,
+    //     child: (context){
+
+    //     }
+    //   );
+    // }
   }
 
   @override
   loadfromAPI() async {
     var res = await http.get(
         'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/agenda_details.yml');
+    var result = await _client.getAsync(kConstGetSessionsUrl);
     var list = List<Agenda>();
     if (res.statusCode == 200) {
       var eventJson = json.decode(json.encode(loadYaml(res.body)));
@@ -53,6 +69,8 @@ class HomeProvider implements IHomeProvider {
         list.add(Agenda.fromJson(eventJson));
       }
       return list;
+    } else {
+      throw Exception(result.networkServiceResponse.message);
     }
     //EventModel ress = EventModel.loadfromAPI(list);
   }
@@ -91,4 +109,10 @@ class HomeProvider implements IHomeProvider {
   }
 
   // loadYaml(body) {}
+  // @override
+  // dispose() {
+  //   super.dispose();
+  // }
+
+  
 }

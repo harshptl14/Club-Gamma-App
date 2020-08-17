@@ -3,80 +3,12 @@ import 'package:flutter_devfest/homeWidget/Faq/faq.dart';
 import 'package:flutter_devfest/config/config_bloc.dart';
 import 'package:flutter_devfest/config/config_event.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
+import 'package:flutter_devfest/homeWidget/aboutUs.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
-
-// class DevScaffold extends StatelessWidget {
-//   final String title;
-//   final Widget body;
-//   final Widget tabBar;
-//   final bool settingsIcon;
-
-//   const DevScaffold(
-//       {Key key, @required this.body, @required this.title, this.tabBar, this.settingsIcon})
-//       : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedContainer(
-//       duration: Duration(milliseconds: 500),
-//       color: ConfigBloc().darkModeOn ? Colors.grey[800] : Colors.white,
-//       child: SafeArea(
-//         top: false,
-//         bottom: false,
-//         child: Scaffold(
-//           appBar: AppBar(
-//             title: Text(title),
-//             centerTitle: true,
-//             bottom: tabBar != null ? tabBar : null,
-//             actions: <Widget>[
-//               IconButton(
-//                 icon: Icon(
-//                   ConfigBloc().darkModeOn
-//                       ? FontAwesomeIcons.lightbulb
-//                       : FontAwesomeIcons.solidLightbulb,
-//                   size: 18,
-//                 ),
-//                 onPressed: () {
-//                   ConfigBloc()
-//                       .dispatch(DarkModeEvent(!ConfigBloc().darkModeOn));
-//                 },
-//               ),
-//               IconButton(
-//                 onPressed: () => Share.share(
-//                     "Download the new DevFest App and share with your tech friends.\nPlayStore -  http://bit.ly/2GDr18N"),
-//                 icon: Icon(
-//                   Icons.share,
-//                   size: 20,
-//                 ),
-//               ),
-
-//               settingsIcon == true ? IconButton(
-//                 onPressed: () {
-//                    Navigator.push(
-//                     context,
-//                     new MaterialPageRoute(
-//                         builder: (context) => FaqActivity(
-//                            )));
-//                 },
-//                 icon: Icon(
-//                   Icons.photo_album,
-//                   size: 20,
-//                 ),
-//               ) : Container(),
-
-//             ],
-//           ),
-//           body: body,
-//         ),
-//       ),
-//     );
-//   }
-
-//------------------------------
 
 class DevScaffold extends StatefulWidget {
   final String title;
@@ -106,6 +38,10 @@ class _DevScaffoldState extends State<DevScaffold> {
         top: false,
         bottom: false,
         child: Scaffold(
+          //backgroundColor: ConfigBloc().darkModeOn ? Colors.black : Colors.grey.shade100,
+          //Tools.hexToColor('#0B1A30'),
+          // backgroundColor:
+          //     ConfigBloc().darkModeOn ? Colors.black : Colors.white,
           appBar: AppBar(
             title: Text(widget.title),
             centerTitle: true,
@@ -135,10 +71,6 @@ class _DevScaffoldState extends State<DevScaffold> {
                   ? IconButton(
                       onPressed: () {
                         return _onButtonPressed();
-                        // Navigator.push(
-                        //     context,
-                        //     new MaterialPageRoute(
-                        //         builder: (context) => FaqActivity()));
                       },
                       icon: Icon(
                         Icons.format_list_bulleted,
@@ -156,27 +88,30 @@ class _DevScaffoldState extends State<DevScaffold> {
 
   void _onButtonPressed() {
     showModalBottomSheet(
+        isScrollControlled: true,
+        isDismissible: true,
+        enableDrag: true,
+        elevation: 10,
+         shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0)),
+        ),
         context: context,
         builder: (context) {
           return Container(
-              padding: EdgeInsets.all(19),
-              height: 180,
-              child: 
-              Column(
+              decoration: BoxDecoration(
+                  borderRadius: new BorderRadius.only(
+                      topLeft: const Radius.circular(10.0),
+                      topRight: const Radius.circular(10.0))),
+              padding: EdgeInsets.all(5),
+              height: MediaQuery.of(context).size.height * 0.33,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: Row(
-                      children: [
-                        Text('What are you '),
-                        Text('Searching for?', style: TextStyle(color: ClubGamma.contrastColor),),
-                      ],
-                    ),
+                
+                  SizedBox(
+                    height: 10,
                   ),
-
-                  Row(
-                    children: [
+                 
                       ActionCard(
                           icon: Icons.photo_album,
                           color: Colors.purple,
@@ -188,7 +123,7 @@ class _DevScaffoldState extends State<DevScaffold> {
                                     builder: (context) => Timeline()));
                           }),
                       SizedBox(
-                        width: 13,
+                        height: 10,
                       ),
                       ActionCard(
                           icon: Icons.question_answer,
@@ -200,37 +135,48 @@ class _DevScaffoldState extends State<DevScaffold> {
                                 new MaterialPageRoute(
                                     builder: (context) => FaqActivity()));
                           }
-                          //  Navigator.pushNamed(context, SponsorPage.routeName),
                           ),
-                      SizedBox(
-                        width: 13,
-                      ),
+                  
+                  SizedBox(height: 10),
+                
                       ActionCard(
                           icon: Icons.group,
                           color: Colors.yellow,
                           title: 'Team',
                           onPressed: () {
-                             Navigator.push(
+                            Navigator.push(
                                 context,
                                 new MaterialPageRoute(
                                     builder: (context) => TeamPage()));
                           }
-                          //  Navigator.pushNamed(context, SponsorPage.routeName),
                           ),
-
-                          SizedBox(
-                        width: 13,
+                      SizedBox(
+                        height: 10,
                       ),
                       ActionCard(
                           icon: Icons.event_available,
                           color: Colors.green,
-                          title: 'UpvoteEvent',
+                          title: 'Upvote Event',
                           onPressed: () {}
-                          //  Navigator.pushNamed(context, SponsorPage.routeName),
                           ),
 
-                    ],
-                  ),
+                          SizedBox(
+                        height: 10,
+                      ),
+
+                          ActionCard(
+                          icon: Icons.info_outline,
+                          color: Colors.green,
+                          title: 'Info',
+                          
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => AboutUs()));
+                          }
+                          ),
+                  
                 ],
               ));
         });
@@ -247,43 +193,34 @@ class ActionCard extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(8),
+    return GestureDetector(
       onTap: onPressed,
-      child: Ink(
-        height: MediaQuery.of(context).size.height * 0.1,
-        width: MediaQuery.of(context).size.width * 0.2,
-        decoration: BoxDecoration(
-          color: ConfigBloc().darkModeOn
-              ? Tools.hexToColor("#1f2124")
-              : Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: !ConfigBloc().darkModeOn
-              ? [
-                  BoxShadow(
-                    color: Colors.grey[200],
-                    blurRadius: 10,
-                    spreadRadius: 5,
-                  )
-                ]
-              : null,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.05,
+        width: MediaQuery.of(context).size.width,
+       
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Icon(
-              icon,
-              color: color,
+            Container(
+              padding: EdgeInsets.only( top: 5, left: 14),
+              child: Icon(
+                icon,
+                color: ClubGamma.contrastColor,
+                size: 23,
+              ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.title.copyWith(
-                    fontSize: 12,
-                  ),
+            Container(
+              padding: EdgeInsets.only(top:8, left: 14),
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.title.copyWith(
+                      fontSize: 14,
+                      color:  ConfigBloc().darkModeOn
+               ? Colors.white : Colors.black,
+                    ),
+              ),
             ),
           ],
         ),

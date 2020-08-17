@@ -75,7 +75,7 @@ class _EventPageState extends State<EventPage> {
                                         HomeFront(temp, _list[index])));
                           },
                           child: Ink(
-                            height: MediaQuery.of(context).size.height * 0.255,
+                            //height: MediaQuery.of(context).size.height * 0.255,
                             width: MediaQuery.of(context).size.width * 0.88,
                             decoration: BoxDecoration(
                               color: ConfigBloc().darkModeOn
@@ -84,11 +84,24 @@ class _EventPageState extends State<EventPage> {
                               borderRadius: BorderRadius.circular(8),
                               boxShadow: !ConfigBloc().darkModeOn
                                   ? [
+
+                                     BoxShadow(
+                                          color: Colors.black.withOpacity(0.075),
+                                          blurRadius: 7,
+                                          //spreadRadius: 1,
+                                          offset: Offset(
+                                            7,
+                                            7,
+                                          )),
+
                                       BoxShadow(
-                                        color: Colors.grey[200],
-                                        blurRadius: 10,
-                                        spreadRadius: 5,
-                                      ),
+                                          color: Colors.black.withOpacity(0.015),
+                                          blurRadius: 7,
+                                          //spreadRadius: -1,
+                                          offset: Offset(
+                                            -7,
+                                            -7,
+                                          )),
                                     ]
                                   : null,
                             ),
@@ -97,16 +110,16 @@ class _EventPageState extends State<EventPage> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.25,
+                                  //  height: MediaQuery.of(context).size.height *
+                                   //     0.25,
                                     width: MediaQuery.of(context).size.width *
                                         0.01,
                                     color: Color(0xffD31E3C),
                                   ),
                                 ),
                                 Container(
-                                  height: MediaQuery.of(context).size.height *
-                                      0.255,
+                                  //height: MediaQuery.of(context).size.height *
+                                    //  0.255,
                                   width:
                                       MediaQuery.of(context).size.width * 0.87,
                                   child: Column(
@@ -149,7 +162,7 @@ class _EventPageState extends State<EventPage> {
                                         ),
                                       ),
                                       Container(
-                                        height: 25,
+                                       // height: 25,
                                         child: Row(
                                           children: [
                                             Container(
@@ -187,7 +200,7 @@ class _EventPageState extends State<EventPage> {
                                             ),
                                           ),
                                           decoration: BoxDecoration(
-                                            color: Color(0xffffcccc),
+                                            color: Color(0xffffb3b3),
                                             borderRadius:
                                                 BorderRadius.circular(25),
                                           ),
@@ -200,7 +213,11 @@ class _EventPageState extends State<EventPage> {
                                                   .height *
                                               0.04,
                                         ),
+
+                                        
                                       ),
+
+                                      SizedBox(height: 15,),
                                     ],
                                   ),
                                 ),

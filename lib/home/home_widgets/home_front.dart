@@ -54,12 +54,10 @@ class HomeFront extends StatelessWidget {
               color: ClubGamma.contrastColor,
               title: ClubGamma.agenda_text,
               onPressed: () {
-
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
                         builder: (context) => AgendaPage(agendaData)));
-
               }),
           ActionCard(
               icon: Icons.person,
@@ -98,10 +96,12 @@ class HomeFront extends StatelessWidget {
                 Navigator.pushNamed(context, SponsorPage.routeName),
           ),
           ActionCard(
-            icon: Icons.question_answer,
+            icon: Icons.assignment,
             color: ClubGamma.contrastColor,
-            title: ClubGamma.faq_text,
-            onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
+            title: ClubGamma.register_text,
+            onPressed: () async => await _launchURL(
+                "https://docs.google.com/forms/d/e/1FAIpQLScDi6fludGDQvyLw4jzgtw4WimqTnFaKVLoETt6Hea4WMIiUw/closedform"),
+            //Navigator.pushNamed(context, FaqPage.routeName),
           ),
           ActionCard(
             icon: Icons.map,
@@ -161,6 +161,47 @@ class HomeFront extends StatelessWidget {
         ),
       );
 
+  Widget imagecard(context, imagelink) {
+    return Ink(
+      height: MediaQuery.of(context).size.height * 0.28,
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        color: ConfigBloc().darkModeOn
+            ? Tools.hexToColor("#1f2124")
+            //: Colors.grey.shade100,
+            : Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: !ConfigBloc().darkModeOn
+            ? [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.075),
+                    blurRadius: 7,
+                    //spreadRadius: 1,
+                    offset: Offset(
+                      7,
+                      7,
+                    )),
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.015),
+                    blurRadius: 7,
+                    //spreadRadius: -1,
+                    offset: Offset(
+                      -7,
+                      -7,
+                    )),
+              ]
+            : null,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Image.network(
+          imagelink,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DevScaffold(
@@ -171,12 +212,14 @@ class HomeFront extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              ImageCard(
-                img: ConfigBloc().darkModeOn
-                    ? ClubGamma.banner_light
-                    //Image.network(tempData.imagelink)
-                    : ClubGamma.banner_light,
-              ),
+              // ImageCard(
+              //   img: ConfigBloc().darkModeOn
+              //       ? ClubGamma.banner_light
+              //       //Image.network(tempData.imagelink)
+              //       : ClubGamma.banner_light,
+              // ),
+
+              imagecard(context, tempData.imageLink),
               SizedBox(
                 height: 20,
               ),
@@ -229,10 +272,21 @@ class ActionCard extends StatelessWidget {
           boxShadow: !ConfigBloc().darkModeOn
               ? [
                   BoxShadow(
-                    color: Colors.grey[200],
-                    blurRadius: 10,
-                    spreadRadius: 5,
-                  )
+                      color: Colors.black.withOpacity(0.075),
+                      blurRadius: 7,
+                      //spreadRadius: 1,
+                      offset: Offset(
+                        7,
+                        7,
+                      )),
+                  BoxShadow(
+                      color: Colors.black.withOpacity(0.015),
+                      blurRadius: 7,
+                      //spreadRadius: -1,
+                      offset: Offset(
+                        -7,
+                        -7,
+                      )),
                 ]
               : null,
         ),

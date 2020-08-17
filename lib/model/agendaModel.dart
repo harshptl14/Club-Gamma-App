@@ -27,7 +27,7 @@ class Data {
     photo = data['photo'];
     duration = data['duration'];
     speaker = data['speaker'];
-    description = data['description'];
+    description = data['discription'];
     timeduration = data['timeduration'];
     session = data['session'];
   }

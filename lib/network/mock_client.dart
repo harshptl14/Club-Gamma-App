@@ -42,7 +42,7 @@ class MockClient implements IClient {
     //? For Teams Hardcoded Data
      if (resourcePath == HomeProvider.kConstGetTeamsUrl) {
       if (Injector().currentDataMode == DataMode.DART) {
-        rawString = jsonEncode(TeamsData(teams: teams));
+        //rawString = jsonEncode(TeamsData(teams: teams));
       } else {
         rawString = await rootBundle.loadString(ClubGamma.teamsAssetJson);
       }
