@@ -13,6 +13,7 @@ abstract class IHomeProvider {
   Future<TeamsData> getTeams();
   getEvent();
   loadfromAPI();
+  getGallery();
 }
 
 class HomeProvider implements IHomeProvider {
@@ -34,31 +35,21 @@ class HomeProvider implements IHomeProvider {
 
   @override
   getEvent() async {
-    // DataConnectionStatus status = await checkInternet();
-    // if (status == DataConnectionStatus.connected) {
-      var res = await http.get(
-          'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/event_details.yml');
-      var result = await _client.getAsync(kConstGetEventsUrl);
-      if (res.statusCode == 200) {
-        var jsontolist = json.decode(json.encode(loadYaml(res.body)));
-        return jsontolist;
-      } else {
-        throw Exception(result.networkServiceResponse.message);
-      }
-    // } else {
-    //   showDialog(
-    //     context: context,
-    //     child: (context){
-
-    //     }
-    //   );
-    // }
+    var res = await http.get(
+        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/event_details.yml');
+    var result = await _client.getAsync(kConstGetEventsUrl);
+    if (res.statusCode == 200) {
+      var jsontolist = json.decode(json.encode(loadYaml(res.body)));
+      return jsontolist;
+    } else {
+      throw Exception(result.networkServiceResponse.message);
+    }
   }
 
   @override
   loadfromAPI() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events/agenda_details.yml');
+        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/agenda_details.yml');
     var result = await _client.getAsync(kConstGetSessionsUrl);
     var list = List<Agenda>();
     if (res.statusCode == 200) {
@@ -73,6 +64,18 @@ class HomeProvider implements IHomeProvider {
       throw Exception(result.networkServiceResponse.message);
     }
     //EventModel ress = EventModel.loadfromAPI(list);
+  }
+
+  getGallery() async {
+    var res = await http.get(
+        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/gallery_details.yml');
+    var result = await _client.getAsync(kConstGetEventsUrl);
+    if (res.statusCode == 200) {
+      var jsontolistt = json.decode(json.encode(loadYaml(res.body)));
+      return jsontolistt;
+    } else {
+      throw Exception(result.networkServiceResponse.message);
+    }
   }
 
   // @override
@@ -114,5 +117,4 @@ class HomeProvider implements IHomeProvider {
   //   super.dispose();
   // }
 
-  
 }

@@ -16,8 +16,8 @@ class ClubGamma {
   static String baseUrl =
       "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
 
-  //static String clubGammaBanner = "https://raw.githubusercontent.com/clubgamma/assets/master/Wallpapers/4k-Wallpaper.png?token=ANS54QGJR6ER5JC7WMW54B27HJDKY";
-
+  static String placeHolder =
+      'https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1';
   static checkDebug() {
     assert(() {
       // baseUrl = "http://127.0.0.1:8000/gdg-devfest/";

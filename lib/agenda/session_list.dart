@@ -6,21 +6,9 @@ import 'package:flutter_devfest/utils/tools.dart';
 
 class SessionList extends StatelessWidget {
   var allSessions;
-  List<Color> color = [
-    Color(0xffffffff),
-    Color(0xff6f0000),
-  ];
-
   SessionList({Key key, @required this.allSessions}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(allSessions.agendaList[0].description);
-    print(allSessions.agendaList[0].name);
-    print(allSessions.agendaList[0].time);
-    print(allSessions.agendaList[0].timeduration);
-    print(allSessions.agendaList[0].duration);
-    print(allSessions.agendaList[0].session);
-    print(allSessions.agendaList[0].speaker);
     return Padding(
       padding: EdgeInsets.only(top: 10),
       child: ListView.builder(
@@ -106,7 +94,6 @@ class SessionList extends StatelessWidget {
                                           color:
                                               Colors.black.withOpacity(0.075),
                                           blurRadius: 7,
-                                          //spreadRadius: 1,
                                           offset: Offset(
                                             7,
                                             7,
@@ -115,7 +102,6 @@ class SessionList extends StatelessWidget {
                                           color:
                                               Colors.black.withOpacity(0.015),
                                           blurRadius: 7,
-                                          //spreadRadius: -1,
                                           offset: Offset(
                                             -7,
                                             -7,

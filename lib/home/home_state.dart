@@ -23,22 +23,20 @@ class UnHomeState extends HomeState {
 
 /// Initialized
 class InHomeState extends HomeState {
- final dynamic agendaData;
+  final dynamic agendaData;
   final dynamic eventData;
-  // final SpeakersData speakersData;
-  // final SessionsData sessionsData;
+  final dynamic galleryData;
   final TeamsData teamsData;
 
-  InHomeState({
-    @required this.eventData,
-    @required this.agendaData,
-    // @required this.speakersData,
-    // @required this.sessionsData,
-    @required this.teamsData
-  }) : super([
-          eventData, 
+  InHomeState(
+      {@required this.eventData,
+      @required this.agendaData,
+      @required this.galleryData,
+      @required this.teamsData})
+      : super([
+          eventData,
           agendaData,
-          //speakersData, sessionsData, 
+          galleryData, 
           teamsData
         ]);
   @override
@@ -47,17 +45,16 @@ class InHomeState extends HomeState {
   @override
   HomeState getStateCopy() {
     return InHomeState(
-      agendaData: this.agendaData,
-      eventData: this.eventData,
-      // speakersData: this.speakersData,
-      // sessionsData: this.sessionsData,
-      teamsData: this.teamsData
-    );
+        agendaData: this.agendaData,
+        eventData: this.eventData,
+        galleryData: this.galleryData,
+        teamsData: this.teamsData);
   }
 }
 
 class ErrorHomeState extends HomeState {
-   String errorMessage = 'There is an Problem! Can you please check your Internet connection?!';
+  String errorMessage =
+      'There is an Problem! Can you please check your Internet connection?!';
 
   ErrorHomeState();
 

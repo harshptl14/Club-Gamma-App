@@ -55,7 +55,7 @@ class _EventPageState extends State<EventPage> {
           return ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) {
-              print(snapshot.data.length);
+              //print(snapshot.data.length);
               var temp = EventModel.fromJson(snapshot.data.elementAt(index));
               return Container(
                 child: Padding(

@@ -1,15 +1,15 @@
+import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/photos/detailSScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
+import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-const String testDevice = '';
+// const String testDevice = '';
 
 class WallScreen extends StatefulWidget {
   var data;
-  int length;
-  WallScreen(this.data, this.length);
-
+  WallScreen(this.data);
   @override
   _WallScreenState createState() => new _WallScreenState();
 }
@@ -17,36 +17,37 @@ class WallScreen extends StatefulWidget {
 class _WallScreenState extends State<WallScreen> {
   @override
   Widget build(BuildContext context) {
-    return DevScaffold(body:  widget.data != null
+    return DevScaffold(
+        body: widget.data.images != null
             ?
-            //Column(
-
-            //   children : [
-
-            // Container(
-            //   child:Text(widget.data['content']),
-            // ),
             StaggeredGridView.countBuilder(
                 padding: const EdgeInsets.all(8.0),
                 crossAxisCount: 4,
-                itemCount: widget.length,
+                itemCount: widget.data.images.length,
                 itemBuilder: (context, i) {
-                  print(widget.length);
-                  String imgPath = widget.data["doodle"][i];
-                  print(widget.data);
+                  String imgPath = widget.data.images[i];
                   return new Container(
-                    // elevation: 8.0,
-                    // borderRadius:
-                    //     new BorderRadius.all(new Radius.circular(8.0)),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey[200],
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          )
-                        ]),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: !ConfigBloc().darkModeOn
+                          ? [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.075),
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                    7,
+                                    7,
+                                  )),
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.015),
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                    -7,
+                                    -7,
+                                  )),
+                            ]
+                          : null,
+                    ),
 
                     child: new InkWell(
                       onTap: () {
@@ -61,8 +62,7 @@ class _WallScreenState extends State<WallScreen> {
                         child: new FadeInImage(
                           image: new NetworkImage(imgPath),
                           fit: BoxFit.cover,
-                          placeholder: new NetworkImage(
-                              "https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1"),
+                          placeholder: new NetworkImage(ClubGamma.placeHolder),
                         ),
                       ),
                     ),
@@ -76,7 +76,10 @@ class _WallScreenState extends State<WallScreen> {
             //],
             //)
             : new Center(
-                child: new CircularProgressIndicator(),
-              ), title: widget.data['name']);
+              child: Align(
+                alignment: Alignment.center,
+                child: Text('No Photos available')),
+              ),
+        title: widget.data.title);
   }
 }

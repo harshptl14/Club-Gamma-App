@@ -21,16 +21,14 @@ class LoadHomeEvent extends HomeEvent {
    // try {
       DataConnectionStatus status = await checkInternet;
       if (status == DataConnectionStatus.connected){
-        dynamic eventData = await _homeProvider.getEvent();
-      //  dynamic speakerData = await _homeProvider.loadfromAPI();
+      dynamic eventData = await _homeProvider.getEvent();
       var agendaData = await _homeProvider.loadfromAPI();
-      // var sessionsData = await _homeProvider.getSessions();
+      var galleryData = await _homeProvider.getGallery();
       var teamsData = await _homeProvider.getTeams();
       return InHomeState(
         eventData: eventData,
         agendaData: agendaData,
-        // speakersData: speakersData,
-        // sessionsData: sessionsData,
+        galleryData : galleryData,
         teamsData: teamsData,
       );
     } else{

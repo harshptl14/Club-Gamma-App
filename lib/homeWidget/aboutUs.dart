@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/home/home_widgets/home_front.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
-import 'package:flutter_devfest/universal/image_card.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -129,16 +127,7 @@ class AboutUs extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-            ),
-            // Container(
-            //   child: Image(
-            //     image: NetworkImage(ClubGamma.clubGammaBanner),
-            //     // ConfigBloc().darkModeOn
-            //     //     ? ClubGamma.banner_light
-            //     //     //Image.network(tempData.imagelink)
-            //     //     : ClubGamma.banner_light,
-            //   ),
-            // ),
+            ),     
             SizedBox(
               height: 20,
             ),
@@ -161,13 +150,10 @@ class AboutUs extends StatelessWidget {
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Text(
                 ClubGamma.aboutusText, textAlign: TextAlign.center,
-                //tempData.description,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey
-                ) 
-                //Theme.of(context).textTheme.caption,
-                
+                )                
               ),
             ),
             SizedBox(
