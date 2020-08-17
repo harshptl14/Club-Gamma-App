@@ -1,0 +1,73 @@
+- agenda:
+   - name: |
+        introduction
+        Part
+     time: 09:00 AM
+     duration: 1 hr
+     timeduration: 9:00 to 10:00 AM
+     speaker: Rudra Barad
+     session: introduction Session
+     photo: https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png
+     discription: You will get the basic knowledge of GitHub.
+   - name: Break Time
+     time: 10:00 AM
+     timeduration: 10:00 to 10:05 AM
+   - name: |
+        Starting with
+        GitHub
+     time: 10:05 AM
+     duration: 1 hr
+     timeduration: 10:05 to 11:00 AM
+     speaker: Rudra Barad
+     session: Lecture Session
+     photo: https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png
+     discription: You will get the basic knowledge of GitHub, what are the functionality of GitHub, how to create an account, components of GitHub.
+   - name: Break Time
+     time: 11:00 AM
+     timeduration: 11:00 to 11:05 AM
+   - name: |
+        Functions of
+        GitHub
+     time: 11:05 AM
+     duration: 1 hr
+     timeduration: 11:05 to 11:59 AM
+     speaker: Chirayu Joshi
+     session: Hands on Session
+     photo: https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png
+     discription: You will get the basic knowledge of GitHub, what are the functionality of GitHub, how to create an account, components of GitHub.
+   - name: Break Time
+     time: 12:00 PM
+     timeduration: 12:00 to 12:05 PM
+   - name: |
+        Git
+        CLI
+     time: 12:05 PM
+     duration: 1 hr
+     timeduration: 12:05 to 01:00 PM
+     speaker: Chirayu Joshi
+     session: Hands on Session
+     photo: https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png
+     discription: You will get the basic knowledge of GitHub, what are the functionality of GitHub, how to create an account, components of GitHub.
+- agenda:
+   - name: |
+        Introduction to
+        Git and Github
+     time: 09 AM
+     duration: 1 hr
+     timeduration: 9:00 to 10:00 AM
+     speaker: Rudra Barad
+     session: Lecture Session
+     photo: https://user-images.githubusercontent.com/57007680/89312793-50a9d500-d695-11ea-8c7b-324c099370b8.png
+     discription: You will get the basic knowledge of GitHub, what are the functionality of GitHub, how to create an account, components of GitHub.
+   - name: |
+        Functions of
+        GitHub
+     time: 10 AM
+     duration: 1 hr
+     timeduration: 10:00 to 11:00 AM
+     speaker: Chirayu Joshi
+     session: Hands on Session
+     photo: https://user-images.githubusercontent.com/57007680/89312810-56071f80-d695-11ea-9b49-dd2d96c78952.png
+     discription: You will get the basic knowledge of GitHub, what are the functionality of GitHub, how to create an account, components of GitHub.
+     
+     
