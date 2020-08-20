@@ -60,7 +60,7 @@ class _CompletedEventState extends State<CompletedEvent> {
           return ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) {
-              print(snapshot.data.length);
+             // print(snapshot.data.length);
               var temp = EventModel.fromJson(snapshot.data.elementAt(index));
               return Container(
                 child: Padding(
@@ -80,7 +80,7 @@ class _CompletedEventState extends State<CompletedEvent> {
                                         HomeFront(temp, _list[index])));
                           },
                           child: Ink(
-                            height: MediaQuery.of(context).size.height * 0.24,
+                            // height: MediaQuery.of(context).size.height * 0.24,
                             width: MediaQuery.of(context).size.width * 0.88,
                             decoration: BoxDecoration(
                               color: ConfigBloc().darkModeOn
@@ -115,16 +115,16 @@ class _CompletedEventState extends State<CompletedEvent> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.235,
+                                    // height: MediaQuery.of(context).size.height *
+                                    //     0.235,
                                     width: MediaQuery.of(context).size.width *
                                         0.01,
                                     color: Color(0xffD31E3C),
                                   ),
                                 ),
                                 Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
+                                  // height:
+                                  //     MediaQuery.of(context).size.height * 0.2,
                                   width:
                                       MediaQuery.of(context).size.width * 0.87,
                                   child: Column(
@@ -167,7 +167,7 @@ class _CompletedEventState extends State<CompletedEvent> {
                                         ),
                                       ),
                                       Container(
-                                        height: 25,
+                                       // height: 25,
                                         child: Row(
                                           children: [
                                             Container(

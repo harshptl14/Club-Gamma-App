@@ -52,8 +52,8 @@ class HomeProvider implements IHomeProvider {
     var list = List<Agenda>();
     if (res.statusCode == 200) {
       var eventJson = json.decode(json.encode(loadYaml(res.body)));
-      print('data');
-      print(eventJson);
+      //print('data');
+      //print(eventJson);
       for (var eventJson in eventJson) {
         list.add(Agenda.fromJson(eventJson));
       }

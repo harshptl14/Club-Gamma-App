@@ -114,7 +114,7 @@ class _EventPageState extends State<EventPage> {
                                   borderRadius: BorderRadius.circular(8),
                                   child: Container(
                                   //  height: MediaQuery.of(context).size.height *
-                                   //     0.25,
+                                  //      0.25,
                                     width: MediaQuery.of(context).size.width *
                                         0.01,
                                     color: Color(0xffD31E3C),

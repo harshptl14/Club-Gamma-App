@@ -6,7 +6,6 @@ import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
 import 'package:flutter_devfest/homeWidget/aboutUs.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
-import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
 

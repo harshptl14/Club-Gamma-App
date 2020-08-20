@@ -29,7 +29,7 @@ class SessionList extends StatelessWidget {
                             height: 5,
                           ),
                           Container(
-                            margin: EdgeInsets.only(left: 13, right: 13),
+                            margin: EdgeInsets.only(left: 10, right: 10),
                             child: Text(
                               allSessions.agendaList[index].time != null
                                   ? allSessions.agendaList[index].time
@@ -48,7 +48,7 @@ class SessionList extends StatelessWidget {
 
                           allSessions.agendaList[index].speaker != null
                               ? Container(
-                                  margin: EdgeInsets.only(left: 17, right: 15),
+                                  margin: EdgeInsets.only(left: 15, right: 13),
                                   color: Color(0xffD71E3C),
                                   width: 2,
                                   height:
