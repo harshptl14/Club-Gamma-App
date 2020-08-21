@@ -32,20 +32,20 @@ class Speaker {
   var name;
   var post;
   var image;
-  var session;
+  var designation;
   var linkedin;
   var twitter;
   var github;
   var instagram;
 
-  Speaker(this.name, this.post, this.image, this.session, this.linkedin,
+  Speaker(this.name, this.post, this.image, this.designation, this.linkedin,
       this.twitter, this.github, this.instagram);
 
   Speaker.fromJson(Map<String, dynamic> data) {
     name = data['name'];
     post = data['post'];
     image = data['image'];
-    session = data['session'];
+    designation = data['designation'];
     linkedin = data['linkedin'];
     twitter = data['twitter'];
     github = data['github'];

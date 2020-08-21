@@ -1,17 +1,16 @@
 import 'dart:convert';
 import 'package:flutter_devfest/model/agendaModel.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_devfest/home/team.dart';
 import 'package:flutter_devfest/network/i_client.dart';
 import 'package:flutter_devfest/utils/dependency_injection.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:yaml/yaml.dart';
 
 abstract class IHomeProvider {
-  Future<TeamsData> getTeams();
   getEvent();
   loadfromAPI();
   getGallery();
+  getTeam();
 }
 
 class HomeProvider implements IHomeProvider {
@@ -34,7 +33,7 @@ class HomeProvider implements IHomeProvider {
   @override
   getEvent() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/event_details.yml');
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/eventsData/event_details.yml');
     var result = await _client.getAsync(kConstGetEventsUrl);
     if (res.statusCode == 200) {
       var jsontolist = json.decode(json.encode(loadYaml(res.body)));
@@ -47,7 +46,7 @@ class HomeProvider implements IHomeProvider {
   @override
   loadfromAPI() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/agenda_details.yml');
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/eventsData/agenda_details.yml');
     var result = await _client.getAsync(kConstGetSessionsUrl);
     var list = List<Agenda>();
     if (res.statusCode == 200) {
@@ -66,7 +65,7 @@ class HomeProvider implements IHomeProvider {
 
   getGallery() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/gallery_details.yml');
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/General%20data/gallery_details.yml');
     var result = await _client.getAsync(kConstGetEventsUrl);
     if (res.statusCode == 200) {
       var jsontolistt = json.decode(json.encode(loadYaml(res.body)));
@@ -77,14 +76,15 @@ class HomeProvider implements IHomeProvider {
   }
 
   @override
-  Future<TeamsData> getTeams() async {
-    var result = await _client.getAsync(kConstGetTeamsUrl);
-    if (result.networkServiceResponse.success) {
-      TeamsData res = TeamsData.fromJson(result.mappedResult);
-      return res;
+  getTeam() async {
+    var res = await http.get(
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/General%20data/team_details.yml');
+    var result = await _client.getAsync(kConstGetEventsUrl);
+    if (res.statusCode == 200) {
+      var jsontolist = json.decode(json.encode(loadYaml(res.body)));
+      return jsontolist;
+    } else {
+      throw Exception(result.networkServiceResponse.message);
     }
-
-    throw Exception(result.networkServiceResponse.message);
   }
-
 }

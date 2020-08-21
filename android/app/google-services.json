@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "707662210040",
+    "firebase_url": "https://club-gamma.firebaseio.com",
+    "project_id": "club-gamma",
+    "storage_bucket": "club-gamma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707662210040:android:44f5608bffa7ed0140ac0d",
+        "android_client_info": {
+          "package_name": "com.gce.clubgamma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707662210040-8i2hpd1njekn8mt6654huse795ijvs7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk3Max5BST_jISbX9F_hvfzW7noqjhJjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707662210040-8i2hpd1njekn8mt6654huse795ijvs7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

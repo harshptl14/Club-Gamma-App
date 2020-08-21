@@ -104,6 +104,7 @@ class _DevScaffoldState extends State<DevScaffold> {
                   topRight: const Radius.circular(10.0))),
           padding: EdgeInsets.all(5),
           height: MediaQuery.of(context).size.height * 0.33,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -182,17 +183,19 @@ class ActionCard extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      splashColor: Color(0xffffb3b3),
+      borderRadius: BorderRadius.circular(15),
       onTap: onPressed,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.05,
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 5, left: 14),
+             padding: EdgeInsets.only(left: 14),
               child: Icon(
                 icon,
                 color: ClubGamma.contrastColor,
@@ -200,7 +203,7 @@ class ActionCard extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top: 8, left: 14),
+             padding: EdgeInsets.only(left: 14),
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.title.copyWith(

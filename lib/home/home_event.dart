@@ -24,7 +24,7 @@ class LoadHomeEvent extends HomeEvent {
       dynamic eventData = await _homeProvider.getEvent();
       var agendaData = await _homeProvider.loadfromAPI();
       var galleryData = await _homeProvider.getGallery();
-      var teamsData = await _homeProvider.getTeams();
+      var teamsData = await _homeProvider.getTeam();
       return InHomeState(
         eventData: eventData,
         agendaData: agendaData,

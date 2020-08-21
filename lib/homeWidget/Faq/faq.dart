@@ -29,6 +29,7 @@ class _FaqActivityState extends State<FaqActivity> {
                   },
                   children: [
                     new ExpansionPanel(
+                      canTapOnHeader: true,
                       isExpanded: _activeMeterIndex == i,
                       headerBuilder: (BuildContext context, bool isExpanded) =>
                           new Container(

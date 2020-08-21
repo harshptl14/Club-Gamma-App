@@ -7,8 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutUs extends StatelessWidget {
-
-    _launchURL(String url) async {
+  _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -74,11 +73,16 @@ class AboutUs extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Text(
-          ClubGamma.aboutusText,
-          //tempData.description,
-          style: Theme.of(context).textTheme.caption,
-          textAlign: TextAlign.center,
+        Container(
+          color: Colors.red,
+          child: Text(
+            ClubGamma.aboutusText,
+            style: TextStyle(),
+            //tempData.description,
+
+            //Theme.of(context).textTheme.caption,
+            textAlign: TextAlign.justify,
+          ),
         ),
       ];
   @override
@@ -127,7 +131,7 @@ class AboutUs extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-            ),     
+            ),
             SizedBox(
               height: 20,
             ),
@@ -143,24 +147,61 @@ class AboutUs extends StatelessWidget {
             ),
 
             SizedBox(
-              height: 20,
+              height: 10,
             ),
 
             Container(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Text(
-                ClubGamma.aboutusText, textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey
-                )                
-              ),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Text(ClubGamma.aboutusText,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 14, color: Colors.grey)),
             ),
             SizedBox(
               height: 20,
             ),
 
             socialActions(context),
+
+            SizedBox(height: 5),
+
+            Text(
+              ClubGamma.app_version,
+              style: Theme.of(context).textTheme.caption.copyWith(fontSize: 10),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+
+            Container(
+              child: Text(
+                '''Built using Mtechviral's repo''',
+                style: TextStyle(color: Colors.grey[400]),
+              ),
+            ),
+
+            FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  IconButton(
+                    color:  Colors.grey[400],
+                    icon: Icon(FontAwesomeIcons.twitter),
+                    onPressed: () async {
+                      await _launchURL(
+                          "https://twitter.com/imthepk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor");
+                    },
+                  ),
+                  IconButton(
+                    color:  Colors.grey[400],
+                    icon: Icon(FontAwesomeIcons.youtube),
+                    onPressed: () async {
+                      await _launchURL(
+                          "https://www.youtube.com/channel/UCFTM1FGjZSkoSPDZgtbp7hA");
+                    },
+                  ),
+                ],
+              ),
+            ),
           ],
         )),
         title: 'About us');

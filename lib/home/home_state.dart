@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_devfest/home/team.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -26,7 +25,7 @@ class InHomeState extends HomeState {
   final dynamic agendaData;
   final dynamic eventData;
   final dynamic galleryData;
-  final TeamsData teamsData;
+  final dynamic teamsData;
 
   InHomeState(
       {@required this.eventData,

@@ -2,13 +2,13 @@ class Speaker {
   var name;
   var post;
   var image;
-  var session;
-  Speaker({this.name, this.post, this.image, this.session});
+  var designation;
+  Speaker({this.name, this.post, this.image, this.designation});
 
   Speaker.fromJson(Map<String, dynamic> data) {
     name = data['name'];
     post = data['post'];
     image = data['image'];
-    session = data['session'];
+    designation = data['designation'];
   }
 }

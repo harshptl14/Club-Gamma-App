@@ -122,7 +122,7 @@ class SpeakerPage extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  speakerData.speaker[index].session,
+                                  speakerData.speaker[index].designation,
                                   style: Theme.of(context).textTheme.caption,
                                 ),
                                 socialActions(
