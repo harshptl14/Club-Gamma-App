@@ -3,6 +3,7 @@ import 'package:flutter_devfest/homeWidget/Faq/faq.dart';
 import 'package:flutter_devfest/config/config_bloc.dart';
 import 'package:flutter_devfest/config/config_event.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
+import 'package:flutter_devfest/homeWidget/Upvote/upvote.dart';
 import 'package:flutter_devfest/homeWidget/aboutUs.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
@@ -19,7 +20,7 @@ class DevScaffold extends StatefulWidget {
   const DevScaffold(
       {Key key,
       @required this.body,
-      @required this.title,
+      this.title,
       this.tabBar,
       this.settingsIcon})
       : super(key: key);
@@ -31,6 +32,7 @@ class DevScaffold extends StatefulWidget {
 class _DevScaffoldState extends State<DevScaffold> {
   @override
   Widget build(BuildContext context) {
+    //var title = widget.title;
     return AnimatedContainer(
       duration: Duration(milliseconds: 500),
       color: ConfigBloc().darkModeOn ? Colors.grey[800] : Colors.white,
@@ -152,7 +154,12 @@ class _DevScaffoldState extends State<DevScaffold> {
                   icon: Icons.event_available,
                   color: Colors.green,
                   title: 'Upvote Event',
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => UpvoteEvent()));
+                  }),
               SizedBox(
                 height: 10,
               ),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/photos/detailSScreen.dart';
 import 'package:flutter/material.dart';
@@ -75,11 +77,28 @@ class _WallScreenState extends State<WallScreen> {
               )
             //],
             //)
-            : new Center(
-              child: Align(
-                alignment: Alignment.center,
-                child: Text('No Photos available')),
-              ),
+            :Center(
+            child: Container(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height:  MediaQuery.of(context).size.height * 0.4,
+                    width:  MediaQuery.of(context).size.width * 0.7,
+                    child: Image.asset(
+                    ClubGamma.eventphotos),),
+
+                    Container(
+                      padding: EdgeInsets.only(bottom: 50),
+                      child: Text('Coming Soon!', style: TextStyle(
+                        fontSize: 16
+                      ),),
+                    ),
+                ],
+              )
+            ),
+          ),
         title: widget.data.title);
   }
 }

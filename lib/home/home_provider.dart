@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_devfest/model/agendaModel.dart';
+import 'package:flutter_devfest/model/upvoteModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_devfest/home/team.dart';
 import 'package:flutter_devfest/network/i_client.dart';
@@ -76,6 +77,43 @@ class HomeProvider implements IHomeProvider {
     }
   }
 
+  Future<Upvote> fetchAlbum() async {
+    final response =
+        await http.get('https://jsonplaceholder.typicode.com/albums/1');
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      var jsontolistt = json.decode(response.body);
+      return jsontolistt;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
+    }
+  }
+
+  Future<Upvote> updateAlbum(String title) async {
+    final http.Response response = await http.put(
+      'https://jsonplaceholder.typicode.com/albums/1',
+      body: jsonEncode(<String, String>{
+        'title': title,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      var jsontolistt = json.decode(response.body);
+
+      return jsontolistt;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to update album.');
+    }
+  }
+
   @override
   Future<TeamsData> getTeams() async {
     var result = await _client.getAsync(kConstGetTeamsUrl);
@@ -86,5 +124,4 @@ class HomeProvider implements IHomeProvider {
 
     throw Exception(result.networkServiceResponse.message);
   }
-
 }

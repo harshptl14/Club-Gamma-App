@@ -296,7 +296,23 @@ class SessionList extends StatelessWidget {
         : Center(
             child: Container(
               alignment: Alignment.center,
-              child: Text('Coming Soon...'),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height:  MediaQuery.of(context).size.height * 0.4,
+                    width:  MediaQuery.of(context).size.width * 0.7,
+                    child: Image.asset(
+                    ClubGamma.comingsoon),),
+
+                    Container(
+                      padding: EdgeInsets.only(bottom: 50),
+                      child: Text('Coming Soon!', style: TextStyle(
+                        fontSize: 16
+                      ),),
+                    ),
+                ],
+              )
             ),
           );
   }
