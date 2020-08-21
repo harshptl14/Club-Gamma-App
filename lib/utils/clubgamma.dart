@@ -40,6 +40,9 @@ class ClubGamma {
   static const String banner_light = "assets/images/gitGithub.jpeg";
   static const String banner_dark = "assets/images/gitGithub.jpeg";
   static const String banner = "assets/images/banner.png";
+  static const String intenetError = "assets/images/deckfailcat.png";
+  static const String eventphotos = "assets/images/eventpic.png";
+  static const String comingsoon = "assets/images/comingsoon.png";
 
   //*  Texts
   static const String welcomeText = "introduction to Git and github";

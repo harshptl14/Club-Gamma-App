@@ -46,7 +46,6 @@ class HomeScreenState extends State<HomeScreen> {
 
     print("Current status: ${await DataConnectionChecker().connectionStatus}");
 
-
     print("Last results: ${DataConnectionChecker().lastTryResults}");
     listener = DataConnectionChecker().onStatusChange.listen((status) {
       switch (status) {
@@ -69,16 +68,17 @@ class HomeScreenState extends State<HomeScreen> {
       bloc: widget._homeBloc,
       listener: (context, state) {
         if (state is ErrorHomeState) {
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (context) => ErrorDialog(
-              error: state.errorMessage,
-              onTap: () {
-                _homeBloc.dispatch(LoadHomeEvent(checkInternet()));
-              },
-            ),
-          );
+          // showDialog(
+          //   context: context,
+          //   barrierDismissible: false,
+          //   builder: (context) => ErrorDialog(
+          //     error: state.errorMessage,
+          //     onTap: () {
+          //       _homeBloc.dispatch(LoadHomeEvent(checkInternet()));
+          //     },
+          //   ),
+          // );
+          Container();
         }
       },
       child: BlocBuilder<HomeBloc, HomeState>(
@@ -96,12 +96,49 @@ class HomeScreenState extends State<HomeScreen> {
             }
             if (currentState is ErrorHomeState) {
               return Container(
+                  color: ClubGamma.contrastColor,
                   padding: const EdgeInsets.all(16.0),
-                  child: Center(
-                    child: Text(
-                      currentState.errorMessage ?? 'Error',
-                      textAlign: TextAlign.center,
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(ClubGamma.intenetError),
+                      Center(
+                        child: Text(
+                          currentState.errorMessage ?? 'Error',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      // RaisedButton(
+                      //   color: Colors.black,
+                      //   textColor: Colors.white,
+                      //   child: Text('Try Again'),
+                      //   onPressed: () {
+                      //   _homeBloc.dispatch(LoadHomeEvent(checkInternet()));
+                      // })
+                      RaisedButton(
+                          highlightElevation: 0,
+                          hoverElevation: 0,
+                          elevation: 0,
+                          // hoverColor: Colors.grey,
+                          color: Colors.black,
+                          disabledElevation: 0.0,
+                          highlightColor: Colors.white,
+                          child: Text(
+                            'Try again',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            _homeBloc.dispatch(LoadHomeEvent(checkInternet()));
+                          }),
+                    ],
                   ));
             }
             return Mainpage();
