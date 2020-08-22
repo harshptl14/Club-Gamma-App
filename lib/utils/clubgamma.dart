@@ -18,15 +18,15 @@ class ClubGamma {
 
   static String placeHolder =
       'https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1';
-  static checkDebug() {
-    assert(() {
-      // baseUrl = "http://127.0.0.1:8000/gdg-devfest/";
-      // * Change with your local url if any
-      baseUrl = "https://storage.googleapis.com/gdg-devfest";
-      isDebugMode = true;
-      return true;
-    }());
-  }
+  // static checkDebug() {
+  //   assert(() {
+  //     // baseUrl = "http://127.0.0.1:8000/gdg-devfest/";
+  //     // * Change with your local url if any
+  //     baseUrl = "https://storage.googleapis.com/gdg-devfest";
+  //     isDebugMode = true;
+  //     return true;
+  //   }());
+  // }
 
   static bool get checkDebugBool {
     var debug = false;
@@ -43,6 +43,7 @@ class ClubGamma {
   static const String intenetError = "assets/images/deckfailcat.png";
   static const String eventphotos = "assets/images/eventpic.png";
   static const String comingsoon = "assets/images/comingsoon.png";
+  static const String loading = "assets/images/placeholderr.png";
 
   //*  Texts
   static const String welcomeText = "introduction to Git and github";
@@ -78,6 +79,7 @@ class ClubGamma {
 
   //* Preferences
   static SharedPreferences prefs;
+
   static const String loggedInPref = "loggedInPref1";
   static const String displayNamePref = "displayNamePref";
   static const String emailPref = "emailPref";

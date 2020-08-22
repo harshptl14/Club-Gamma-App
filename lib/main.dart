@@ -32,7 +32,7 @@ WidgetsFlutterBinding.ensureInitialized();
   ClubGamma.prefs = await SharedPreferences.getInstance();
 
   //* To check the app is running in debug and set some variables for that
-  ClubGamma.checkDebug();
+  //ClubGamma.checkDebug();
 
   //* Time travel debugging to check app states
   BlocSupervisor.delegate = SimpleBlocDelegate();

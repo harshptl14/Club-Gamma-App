@@ -28,6 +28,27 @@ class DarkModeEvent extends ConfigEvent {
   }
 }
 
+class UpvoteEventt extends ConfigEvent {
+  final bool voteOn;
+  final String sharedname;
+  UpvoteEventt(this.voteOn, this.sharedname);
+  @override
+  String toString() => 'UpvoteEvent';
+
+  @override
+  Future<ConfigState> applyAsync(
+      {ConfigState currentState, ConfigBloc bloc}) async {
+    try {
+     // bloc.upVoteOn = voteOn;
+      ClubGamma.prefs.setBool(sharedname, voteOn);
+      return InConfigState();
+    } catch (_, stackTrace) {
+      print('$_ $stackTrace');
+      return new ErrorConfigState(_?.toString());
+    }
+  }
+}
+
 class LoadConfigEvent extends ConfigEvent {
   @override
   String toString() => 'LoadConfigEvent';

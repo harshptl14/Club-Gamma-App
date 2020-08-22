@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 
 class SessionDetail extends StatelessWidget {
   static const String routeName = "/session_detail";
@@ -65,21 +66,35 @@ class SessionDetail extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Center(
-                child:
-                    Hero(
-                    tag: session.name,
-                    child:
-                    CircleAvatar(
-                      backgroundColor:  Color(0xffffb3b3),
+                child: Hero(
+                  tag: session.name,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.28,
+                                        width: MediaQuery.of(context).size.width * 0.55,
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(110),
+                        color: Color(0xffffb3b3),
+                      ),
+                      // CircleAvatar(
+                      //   backgroundColor: Color(0xffffb3b3),
                       // !ConfigBloc().darkModeOn
                       //                 ? Colors.white
                       //                 : Colors.black,
-                  radius: 100.0,
-                  backgroundImage: CachedNetworkImageProvider(
-                    session.photo  != null ? session.photo : "https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1",
-                  ),
+                      //radius: 100.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(110),
+                        child: FadeInImage.assetNetwork(
+                          fit: BoxFit.cover,
+                          image: session.photo,
+                          placeholder: ClubGamma.loading,
+                        ),
+                        // ),
+                        // CachedNetworkImageProvider(
+                        //   session.photo  != null ? session.photo : "https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1",
+                        // ),
+                      )),
                 ),
-                 ),
               ),
               SizedBox(
                 height: 10,
@@ -96,7 +111,7 @@ class SessionDetail extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                "${session.name  != null ? session.name : ''}",
+                "${session.name != null ? session.name : ''}",
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.title.copyWith(
                       fontSize: 20,
@@ -104,28 +119,28 @@ class SessionDetail extends StatelessWidget {
                     ),
               ),
 
-               Text(
-                session.session   != null ? session.session : 'NO Data',
+              Text(
+                session.session != null ? session.session : 'NO Data',
                 textAlign: TextAlign.center,
                 style:
                     Theme.of(context).textTheme.caption.copyWith(fontSize: 13),
-              ), 
+              ),
               SizedBox(
                 height: 2,
               ),
 
-               Text(
-                session.timeduration   != null ? session.timeduration : 'NO Data',
+              Text(
+                session.timeduration != null ? session.timeduration : 'NO Data',
                 textAlign: TextAlign.center,
                 style:
                     Theme.of(context).textTheme.caption.copyWith(fontSize: 13),
-              ), 
+              ),
 
-                SizedBox(
+              SizedBox(
                 height: 15,
               ),
               Text(
-                session.description   != null ? session.description : 'NO Data',
+                session.description != null ? session.description : 'NO Data',
                 textAlign: TextAlign.center,
                 style:
                     Theme.of(context).textTheme.caption.copyWith(fontSize: 16),
@@ -134,7 +149,6 @@ class SessionDetail extends StatelessWidget {
                 height: 20,
               ),
 
-            
               //socialActions(session),
             ],
           ),

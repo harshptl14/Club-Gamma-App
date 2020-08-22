@@ -185,20 +185,12 @@ class AboutUs extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     color:  Colors.grey[400],
-                    icon: Icon(FontAwesomeIcons.twitter),
+                    icon: Icon(FontAwesomeIcons.github),
                     onPressed: () async {
                       await _launchURL(
-                          "https://twitter.com/imthepk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor");
+                          "https://github.com/iampawan/GDG-DevFest-App");
                     },
-                  ),
-                  IconButton(
-                    color:  Colors.grey[400],
-                    icon: Icon(FontAwesomeIcons.youtube),
-                    onPressed: () async {
-                      await _launchURL(
-                          "https://www.youtube.com/channel/UCFTM1FGjZSkoSPDZgtbp7hA");
-                    },
-                  ),
+                  )
                 ],
               ),
             ),

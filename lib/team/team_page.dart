@@ -16,7 +16,7 @@ dynamic events = state.teamsData;
 class TeamPage extends StatelessWidget {
   static const String routeName = "/team";
 
-    Future<dynamic> loadTeam(team) async {
+  Future<dynamic> loadTeam(team) async {
     var teammm = await team;
     return teammm;
   }
@@ -40,7 +40,7 @@ class TeamPage extends StatelessWidget {
                 size: 15,
               ),
               onPressed: () {
-               launch(temp.twitter);
+                launch(temp.twitter);
               },
             ),
             IconButton(
@@ -49,7 +49,7 @@ class TeamPage extends StatelessWidget {
                 size: 15,
               ),
               onPressed: () {
-               launch(temp.instagram);
+                launch(temp.instagram);
               },
             ),
             IconButton(
@@ -58,7 +58,7 @@ class TeamPage extends StatelessWidget {
                 size: 15,
               ),
               onPressed: () {
-               launch(temp.github);
+                launch(temp.github);
               },
             ),
           ],
@@ -67,93 +67,109 @@ class TeamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DevScaffold(
-      body:
-      FutureBuilder(
-      future: loadTeam(events),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: SpinKitWanderingCubes(
+      body: FutureBuilder(
+          future: loadTeam(events),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: SpinKitWanderingCubes(
                   color: ClubGamma.contrastColor,
-                ),);
-        } else if (!snapshot.hasData) {
-          return Center(
-            child: Text('No data'),
-          );
-        } else {
-       return ListView.builder(
-        shrinkWrap: true,
-        itemBuilder: (c, index) {
-                        var temp = Team.fromJson(snapshot.data.elementAt(index));
+                ),
+              );
+            } else if (!snapshot.hasData) {
+              return Center(
+                child: Text('No data'),
+              );
+            } else {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: (c, index) {
+                  var temp = Team.fromJson(snapshot.data.elementAt(index));
 
-          return Card(
-            elevation: 0.0,
-            child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ConstrainedBox(
-                      constraints: BoxConstraints.expand(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                      ),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: temp.image,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Text(
-                               temp.name,
-                                style: Theme.of(context).textTheme.title,
+                  return Card(
+                    elevation: 0.0,
+                    child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ConstrainedBox(
+                              constraints: BoxConstraints.expand(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.2,
+                                width: MediaQuery.of(context).size.width * 0.3,
                               ),
-                              SizedBox(
-                                height: 5,
+                              child:
+                                  //  CachedNetworkImage(
+                                  //           fit: BoxFit.cover,
+                                  //           imageUrl: temp.image,
+                                  //         ),
+                                  FadeInImage.assetNetwork(
+                                fit: BoxFit.cover,
+                                image: temp.image,
+                                placeholder: ClubGamma.loading,
                               ),
-                              AnimatedContainer(
-                                duration: Duration(seconds: 1),
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height: 5,
-                                color: ClubGamma.contrastColor,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Text(
+                                        temp.name,
+                                        style:
+                                            Theme.of(context).textTheme.title,
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      AnimatedContainer(
+                                        duration: Duration(seconds: 1),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.2,
+                                        height: 5,
+                                        color: ClubGamma.contrastColor,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    temp.position,
+                                    style: Theme.of(context).textTheme.subtitle,
+                                  ),
+
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  // Text(
+                                  //   temp.post,
+                                  //   style: Theme.of(context).textTheme.caption,
+                                  // ),
+                                  socialActions(context, temp),
+                                ],
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                           temp.position,
-                            style: Theme.of(context).textTheme.subtitle,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            temp.post,
-                            style: Theme.of(context).textTheme.caption,
-                          ),
-                          socialActions(context, temp),
-                        ],
-                      ),
-                    )
-                  ],
-                )),
-          );
-        },
-        itemCount: snapshot.data.length,
-      );}}),
+                            )
+                          ],
+                        )),
+                  );
+                },
+                itemCount: snapshot.data.length,
+              );
+            }
+          }),
       title: "Team",
     );
   }

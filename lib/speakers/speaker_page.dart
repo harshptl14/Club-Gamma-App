@@ -75,10 +75,16 @@ class SpeakerPage extends StatelessWidget {
                               height: MediaQuery.of(context).size.height * 0.2,
                               width: MediaQuery.of(context).size.width * 0.3,
                             ),
-                            child: CachedNetworkImage(
+                            child: FadeInImage.assetNetwork(
                               fit: BoxFit.cover,
-                              imageUrl: speakerData.speaker[index].image,
+                              image: speakerData.speaker[index].image,
+                              placeholder: ClubGamma.loading,
                             ),
+
+                            // CachedNetworkImage(
+                            //   fit: BoxFit.cover,
+                            //   imageUrl: speakerData.speaker[index].image,
+                            // ),
                           ),
                           SizedBox(
                             width: 20,
@@ -137,27 +143,26 @@ class SpeakerPage extends StatelessWidget {
               itemCount: speakerData.speaker.length,
             )
           : Center(
-            child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height:  MediaQuery.of(context).size.height * 0.4,
-                    width:  MediaQuery.of(context).size.width * 0.7,
-                    child: Image.asset(
-                    ClubGamma.comingsoon),),
-
-                    Container(
-                      padding: EdgeInsets.only(bottom: 50),
-                      child: Text('Coming Soon!', style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    ),
-                ],
-              )
+              child: Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        child: Image.asset(ClubGamma.comingsoon),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(bottom: 50),
+                        child: Text(
+                          'Coming Soon!',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  )),
             ),
-          ),
       title: "Speakers",
     );
   }

@@ -72,7 +72,7 @@ class HomeFront extends StatelessWidget {
             title: 'Promote',
             onPressed: () {
               final RenderBox box = context.findRenderObject();
-              Share.share(text,
+              Share.share(tempData.hashtag,
                   sharePositionOrigin:
                       box.localToGlobal(Offset.zero) & box.size);
             },
@@ -89,16 +89,14 @@ class HomeFront extends StatelessWidget {
             icon: Icons.assignment,
             color: ClubGamma.contrastColor,
             title: ClubGamma.register_text,
-            onPressed: () async => await _launchURL(
-                tempData.regLink),
+            onPressed: () async => await _launchURL(tempData.regLink),
             //Navigator.pushNamed(context, FaqPage.routeName),
           ),
           ActionCard(
             icon: Icons.feedback,
             color: ClubGamma.contrastColor,
             title: 'Feedback',
-            onPressed: ()async => await _launchURL(
-                tempData.feedbackLink),
+            onPressed: () async => await _launchURL(tempData.feedbackLink),
           )
         ],
       );
@@ -185,10 +183,15 @@ class HomeFront extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
-        child: Image.network(
-          imagelink,
+        child: FadeInImage.assetNetwork(
           fit: BoxFit.cover,
+          image: imagelink,
+          placeholder: ClubGamma.loading,
         ),
+        // Image.network(
+        //   imagelink,
+        //   fit: BoxFit.cover,
+        // ),
       ),
     );
   }
@@ -203,7 +206,6 @@ class HomeFront extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-
               imagecard(context, tempData.imageLink),
               SizedBox(
                 height: 20,

@@ -1,7 +1,6 @@
 class Team {
   String name;
   String position;
-  String post;
   String image;
   String linkedin;
   String instagram;
@@ -11,7 +10,6 @@ class Team {
   Team(
       {this.name,
       this.position,
-      this.post,
       this.image,
       this.linkedin,
       this.instagram,
@@ -22,7 +20,6 @@ class Team {
   Team.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     position = json['position'];
-    post = json['post'];
     image = json['imageurl'];
     linkedin = json['linkedin'];
     instagram = json['instagram'];

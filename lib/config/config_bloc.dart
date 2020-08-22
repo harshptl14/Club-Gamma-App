@@ -10,6 +10,9 @@ class ConfigBloc extends Bloc<ConfigEvent, ConfigState> {
   ConfigBloc._internal();
 
   bool darkModeOn = false;
+  //List<bool> upVoteOn;
+  //List<String> upvoting;
+ bool upVoteOn = false;
 
   ConfigState get initialState => new UnConfigState();
 

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/homeWidget/Faq/faq.dart';
 import 'package:flutter_devfest/config/config_bloc.dart';
 import 'package:flutter_devfest/config/config_event.dart';
 import 'package:flutter_devfest/homeWidget/Gallery/timeline.dart';
+import 'package:flutter_devfest/homeWidget/Upvote/upvote.dart';
 import 'package:flutter_devfest/homeWidget/aboutUs.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
@@ -60,7 +62,7 @@ class _DevScaffoldState extends State<DevScaffold> {
               ),
               IconButton(
                 onPressed: () => Share.share(
-                    "Download the new ClubGamma App and share with your tech friends.\nPlayStore -"),
+                    "Download the new ClubGamma App and share with your friends- " + "https://play.google.com/store/apps/details?id=" + 'com.gce.clubgamma' +"\n\n"),
                 icon: Icon(
                   Icons.share,
                   size: 20,
@@ -152,7 +154,10 @@ class _DevScaffoldState extends State<DevScaffold> {
                   icon: Icons.event_available,
                   color: Colors.green,
                   title: 'Upvote Event',
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) => UpvoteEvent()));
+                  }),
               SizedBox(
                 height: 10,
               ),

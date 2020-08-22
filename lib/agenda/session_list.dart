@@ -75,6 +75,8 @@ class SessionList extends StatelessWidget {
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(8),
                                 onTap: () {
+                                  // ConfigBloc().dispatch(
+                                  //     UpvoteEvent(!ConfigBloc().upVoteOn[index]));
                                   Navigator.push(
                                       context,
                                       new MaterialPageRoute(
@@ -180,11 +182,19 @@ class SessionList extends StatelessWidget {
                                               child: Hero(
                                                 tag: allSessions
                                                     .agendaList[index].name,
-                                                child: Image.network(
-                                                  allSessions
+                                                child: FadeInImage.assetNetwork(
+                                                  fit: BoxFit.cover,
+                                                  image: allSessions
                                                       .agendaList[index].photo,
-                                                  fit: BoxFit.contain,
+                                                  placeholder:
+                                                      ClubGamma.loading,
                                                 ),
+
+                                                // Image.network(
+                                                //   allSessions
+                                                //       .agendaList[index].photo,
+                                                //   fit: BoxFit.contain,
+                                                // ),
                                                 //  ),
                                               ),
                                             ),
@@ -295,25 +305,24 @@ class SessionList extends StatelessWidget {
           )
         : Center(
             child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height:  MediaQuery.of(context).size.height * 0.4,
-                    width:  MediaQuery.of(context).size.width * 0.7,
-                    child: Image.asset(
-                    ClubGamma.comingsoon),),
-
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: Image.asset(ClubGamma.comingsoon),
+                    ),
                     Container(
                       padding: EdgeInsets.only(bottom: 50),
-                      child: Text('Coming Soon!', style: TextStyle(
-                        fontSize: 16
-                      ),),
+                      child: Text(
+                        'Coming Soon!',
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ),
-                ],
-              )
-            ),
+                  ],
+                )),
           );
   }
 }
