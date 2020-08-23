@@ -26,18 +26,16 @@ class InHomeState extends HomeState {
   final dynamic eventData;
   final dynamic galleryData;
   final dynamic teamsData;
+  final dynamic faqData;
 
   InHomeState(
       {@required this.eventData,
       @required this.agendaData,
       @required this.galleryData,
-      @required this.teamsData})
-      : super([
-          eventData,
-          agendaData,
-          galleryData, 
-          teamsData
-        ]);
+      @required this.teamsData,
+      @required this.faqData
+      })
+      : super([eventData, agendaData, galleryData, teamsData, faqData]);
   @override
   String toString() => 'InHomeState';
 
@@ -47,7 +45,9 @@ class InHomeState extends HomeState {
         agendaData: this.agendaData,
         eventData: this.eventData,
         galleryData: this.galleryData,
-        teamsData: this.teamsData);
+        teamsData: this.teamsData,
+        faqData: this.faqData,
+        );
   }
 }
 

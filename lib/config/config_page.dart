@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/find_devfest/find_devfest_page.dart';
 import 'package:flutter_devfest/home/home_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
@@ -63,7 +62,6 @@ class _ConfigPageState extends State<ConfigPage> {
             routes: {
               HomePage.routeName: (context) => HomePage(),
               SponsorPage.routeName: (context) => SponsorPage(),
-              FindDevFestPage.routeName: (context) => FindDevFestPage(),
             },
           );
         },

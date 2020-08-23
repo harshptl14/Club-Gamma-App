@@ -1,11 +1,5 @@
 // *  Not needed as of now
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_devfest/home/home_provider.dart';
-import 'package:flutter_devfest/utils/dependency_injection.dart';
-import 'package:flutter_devfest/utils/clubgamma.dart';
-
 import 'index.dart';
 
 class MockClient implements IClient {
@@ -13,17 +7,17 @@ class MockClient implements IClient {
   Future<MappedNetworkServiceResponse<T>> getAsync<T>(String resourcePath,
       {bool customHeaders}) async {
     var resultClass;
-    String rawString;
+    //String rawString;
 
     //? For Teams Hardcoded Data
-     if (resourcePath == HomeProvider.kConstGetTeamsUrl) {
-      if (Injector().currentDataMode == DataMode.DART) {
-        //rawString = jsonEncode(TeamsData(teams: teams));
-      } else {
-        rawString = await rootBundle.loadString(ClubGamma.teamsAssetJson);
-      }
-      resultClass = await compute(jsonParserIsolate, rawString);
-    }
+    //  if (resourcePath == HomeProvider.kConstGetTeamsUrl) {
+    //   if (Injector().currentDataMode == DataMode.DART) {
+    //     //rawString = jsonEncode(TeamsData(teams: teams));
+    //   } else {
+    //     rawString = await rootBundle.loadString(ClubGamma.teamsAssetJson);
+    //   }
+    //   resultClass = await compute(jsonParserIsolate, rawString);
+    // }
 
     return MappedNetworkServiceResponse<T>(
         mappedResult: resultClass,

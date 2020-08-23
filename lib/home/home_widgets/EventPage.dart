@@ -76,9 +76,9 @@ class _EventPageState extends State<EventPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: MediaQuery.of(context).size.height * 0.38,
-                            width: MediaQuery.of(context).size.width * 0.66,
-                            child: Image.asset(ClubGamma.comingsoon),
+                            height: MediaQuery.of(context).size.height * 0.34,
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Image.asset(ClubGamma.eventcoming),
                           ),
                           Container(
                             padding: EdgeInsets.only(bottom: 50),

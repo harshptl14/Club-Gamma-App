@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
@@ -127,10 +126,10 @@ class SpeakerPage extends StatelessWidget {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  speakerData.speaker[index].designation,
-                                  style: Theme.of(context).textTheme.caption,
-                                ),
+                                // Text(
+                                //   speakerData.speaker[index].designation,
+                                //   style: Theme.of(context).textTheme.caption,
+                                // ),
                                 socialActions(
                                     context, speakerData.speaker[index]),
                               ],

@@ -18,20 +18,22 @@ class LoadHomeEvent extends HomeEvent {
 
   @override
   Future<HomeState> applyAsync({HomeState currentState, HomeBloc bloc}) async {
-   // try {
-      DataConnectionStatus status = await checkInternet;
-      if (status == DataConnectionStatus.connected){
+    // try {
+    DataConnectionStatus status = await checkInternet;
+    if (status == DataConnectionStatus.connected) {
       dynamic eventData = await _homeProvider.getEvent();
       var agendaData = await _homeProvider.loadfromAPI();
       var galleryData = await _homeProvider.getGallery();
       var teamsData = await _homeProvider.getTeam();
+      var faqData = await _homeProvider.getFaq();
       return InHomeState(
         eventData: eventData,
         agendaData: agendaData,
-        galleryData : galleryData,
+        galleryData: galleryData,
         teamsData: teamsData,
+        faqData:faqData,
       );
-    } else{
+    } else {
       //catch (_, stackTrace) {
       //print('$_ $stackTrace');
       return ErrorHomeState();

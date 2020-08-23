@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_devfest/model/agendaModel.dart';
+import 'package:flutter_devfest/model/faqModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_devfest/network/i_client.dart';
 import 'package:flutter_devfest/utils/dependency_injection.dart';
@@ -11,6 +12,7 @@ abstract class IHomeProvider {
   loadfromAPI();
   getGallery();
   getTeam();
+  getFaq();
 }
 
 class HomeProvider implements IHomeProvider {
@@ -24,8 +26,6 @@ class HomeProvider implements IHomeProvider {
       "${ClubGamma.baseUrl}/agenda_details.yml";
 
   //! Not Working
-  static final String kConstGetTeamsUrl = "${ClubGamma.baseUrl}/team-kol.json";
-
   HomeProvider() {
     _client = Injector().currentClient;
   }
@@ -83,6 +83,27 @@ class HomeProvider implements IHomeProvider {
     if (res.statusCode == 200) {
       var jsontolist = json.decode(json.encode(loadYaml(res.body)));
       return jsontolist;
+    } else {
+      throw Exception(result.networkServiceResponse.message);
+    }
+  }
+
+
+  @override
+  getFaq() async {
+    var res = await http.get(
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/General%20data/faq_details.yml');
+    var result = await _client.getAsync(kConstGetSessionsUrl);
+    var list = List<EventFaq>();
+    if (res.statusCode == 200) {
+      var eventJson = json.decode(json.encode(loadYaml(res.body)));
+      //print('data');
+      print(eventJson);
+      for (var eventJson in eventJson) {
+        list.add(EventFaq.fromJson(eventJson));
+      }
+      return list;
+      // print(list);
     } else {
       throw Exception(result.networkServiceResponse.message);
     }

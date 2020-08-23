@@ -77,7 +77,7 @@ class _CompletedEventState extends State<CompletedEvent> {
                           Container(
                             height: MediaQuery.of(context).size.height * 0.38,
                             width: MediaQuery.of(context).size.width * 0.66,
-                            child: Image.asset(ClubGamma.comingsoon),
+                            child: Image.asset(ClubGamma.eventcoming),
                           ),
                           Container(
                             padding: EdgeInsets.only(bottom: 50),

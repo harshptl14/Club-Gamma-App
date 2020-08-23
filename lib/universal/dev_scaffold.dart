@@ -190,7 +190,8 @@ class ActionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Color(0xffffb3b3),
-      borderRadius: BorderRadius.circular(15),
+     // borderRadius: BorderRadius.circular(20),
+     //hoverColor: ClubGamma.contrastColor,
       onTap: onPressed,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.05,

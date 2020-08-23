@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ClubGamma {
   static const String app_name = "ClubGamma";
-  static const String app_version = "Version 1.0.0";
-  static const int app_version_code = 1;
+  static const String app_version = "Version 1.0.1";
+  static const int app_version_code = 2;
   static const String app_color = "#ffd7167";
   static Color primaryAppColor = Colors.white;
   static Color secondaryAppColor = Colors.black;
@@ -16,17 +16,6 @@ class ClubGamma {
   static String baseUrl =
       "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
 
-  static String placeHolder =
-      'https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1';
-  // static checkDebug() {
-  //   assert(() {
-  //     // baseUrl = "http://127.0.0.1:8000/gdg-devfest/";
-  //     // * Change with your local url if any
-  //     baseUrl = "https://storage.googleapis.com/gdg-devfest";
-  //     isDebugMode = true;
-  //     return true;
-  //   }());
-  // }
 
   static bool get checkDebugBool {
     var debug = false;
@@ -44,12 +33,10 @@ class ClubGamma {
   static const String eventphotos = "assets/images/eventpic.png";
   static const String comingsoon = "assets/images/comingsoon.png";
   static const String loading = "assets/images/placeholderr.png";
+  static const String eventcoming = "assets/images/searchevent.png";
+  static const String upvote = "assets/images/upvotee.png";
 
   //*  Texts
-  static const String welcomeText = "introduction to Git and github";
-  static const String descText =
-      '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.''';
-
   static const String loading_text = "Loading...";
   static const String try_again_text = "Try Again";
   static const String some_error_text = "Some error";
@@ -79,7 +66,6 @@ class ClubGamma {
 
   //* Preferences
   static SharedPreferences prefs;
-
   static const String loggedInPref = "loggedInPref1";
   static const String displayNamePref = "displayNamePref";
   static const String emailPref = "emailPref";

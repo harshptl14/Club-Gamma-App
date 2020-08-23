@@ -19,8 +19,7 @@ class _WallScreenState extends State<WallScreen> {
   Widget build(BuildContext context) {
     return DevScaffold(
         body: widget.data.images != null
-            ?
-            StaggeredGridView.countBuilder(
+            ? StaggeredGridView.countBuilder(
                 padding: const EdgeInsets.all(8.0),
                 crossAxisCount: 4,
                 itemCount: widget.data.images.length,
@@ -48,7 +47,6 @@ class _WallScreenState extends State<WallScreen> {
                             ]
                           : null,
                     ),
-
                     child: new InkWell(
                       onTap: () {
                         Navigator.push(
@@ -59,10 +57,10 @@ class _WallScreenState extends State<WallScreen> {
                       },
                       child: new Hero(
                         tag: imgPath,
-                        child: new FadeInImage(
-                          image: new NetworkImage(imgPath),
+                        child: new FadeInImage.assetNetwork(
+                          image: imgPath,
                           fit: BoxFit.cover,
-                          placeholder: new NetworkImage(ClubGamma.placeHolder),
+                          placeholder: ClubGamma.loading,
                         ),
                       ),
                     ),
@@ -76,27 +74,26 @@ class _WallScreenState extends State<WallScreen> {
             //],
             //)
             : Center(
-            child: Container(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height:  MediaQuery.of(context).size.height * 0.4,
-                    width:  MediaQuery.of(context).size.width * 0.7,
-                    child: Image.asset(
-                    ClubGamma.eventphotos),),
-
-                    Container(
-                      padding: EdgeInsets.only(bottom: 50),
-                      child: Text('After completing the Event!!', style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    ),
-                ],
-              )
-            ),
-          ),
+                child: Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.4,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: Image.asset(ClubGamma.eventphotos),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(bottom: 50),
+                          child: Text(
+                            'After completing the Event!!',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
         title: widget.data.title);
   }
 }
