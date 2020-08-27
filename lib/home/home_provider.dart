@@ -35,7 +35,8 @@ class HomeProvider implements IHomeProvider {
   @override
   getEvent() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/event_details.yml');
+        //'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/event_details.yml'
+        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/event_testing.yml');
     var result = await _client.getAsync(kConstGetEventsUrl);
     if (res.statusCode == 200) {
       var jsontolist = json.decode(json.encode(loadYaml(res.body)));
@@ -48,7 +49,8 @@ class HomeProvider implements IHomeProvider {
   @override
   loadfromAPI() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/agenda_details.yml');
+        // 'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/agenda_details.yml'
+       'https://raw.githubusercontent.com/harshptl14/ClubGammaData/master/events/agenda_testing.yml' );
     var result = await _client.getAsync(kConstGetSessionsUrl);
     var list = List<Agenda>();
     if (res.statusCode == 200) {

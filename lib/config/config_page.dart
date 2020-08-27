@@ -1,8 +1,6 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_devfest/config/index.dart';
-import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/find_devfest/find_devfest_page.dart';
 import 'package:flutter_devfest/home/home_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
@@ -33,7 +31,6 @@ class _ConfigPageState extends State<ConfigPage> {
 
   @override
   Widget build(BuildContext context) {
-    DataConnectionStatus status = DataConnectionStatus.connected;
     return BlocProvider(
       builder: (context) => configBloc,
       child: BlocBuilder<ConfigBloc, ConfigState>(
