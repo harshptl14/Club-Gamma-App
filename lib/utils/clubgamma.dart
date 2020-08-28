@@ -16,7 +16,6 @@ class ClubGamma {
   static String baseUrl =
       "https://raw.githubusercontent.com/harshptl14/Club-Gamma-App/Add-ons/events";
 
-
   static bool get checkDebugBool {
     var debug = false;
     assert(debug = true);
@@ -25,16 +24,23 @@ class ClubGamma {
   }
 
   //* Images
-  static const String home_img = "assets/images/home_img.jpeg";
-  static const String banner_light = "assets/images/gitGithub.jpeg";
-  static const String banner_dark = "assets/images/gitGithub.jpeg";
   static const String banner = "assets/images/banner.png";
   static const String intenetError = "assets/images/deckfailcat.png";
   static const String eventphotos = "assets/images/eventpic.png";
   static const String comingsoon = "assets/images/comingsoon.png";
   static const String loading = "assets/images/placeholderr.png";
+  static const String loadingblack = "assets/images/placeholderblack.png";
   static const String eventcoming = "assets/images/searchevent.png";
   static const String upvote = "assets/images/upvotee.png";
+  static const String instared = "assets/images/instagramred.png";
+  static const String linkedinred = "assets/images/linkedinred.png";
+  static const String githubred = "assets/images/githubred.png";
+  static const String twitterred = "assets/images/twitterred.png";
+  static const String youtubered = "assets/images/youtubered.png";
+  static const String mailred = "assets/images/mailred.png";
+  static const String facebookred = "assets/images/facebookred.png";
+    static const String telegramred = "assets/images/telegramred.png";
+
 
   //*  Texts
   static const String loading_text = "Loading...";

@@ -8,8 +8,6 @@ import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-var counter = 0;
-
 class CompletedEvent extends StatefulWidget {
   @override
   _CompletedEventState createState() => _CompletedEventState();
@@ -45,6 +43,8 @@ class _CompletedEventState extends State<CompletedEvent> {
 
   @override
   Widget build(BuildContext context) {
+    var counter = 0;
+
     return FutureBuilder(
       future: loadEvent(events),
       builder: (context, snapshot) {

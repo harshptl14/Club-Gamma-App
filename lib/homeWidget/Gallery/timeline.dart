@@ -4,6 +4,7 @@ import 'package:flutter_devfest/homeWidget/Gallery/photos/photosScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/model/galleryModel.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
+import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 
 class Timeline extends StatelessWidget {
@@ -174,12 +175,18 @@ class _TimelineeState extends State<Timelinee> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 3,
+                                  height: 7,
                                 ),
                                 Container(
                                   padding: EdgeInsets.only(left: 20),
                                   //alignment: Alignment.center,
-                                  child: Image.network(temp.banner),
+                                  child:  FadeInImage.assetNetwork(
+                              fit: BoxFit.cover,
+                              image: temp.banner,
+                              placeholder: ConfigBloc().darkModeOn
+            ? ClubGamma.loadingblack : ClubGamma.loading,
+                            ),
+                                  //Image.network(temp.banner),
                                   height:
                                       MediaQuery.of(context).size.height * 0.17,
                                   width:

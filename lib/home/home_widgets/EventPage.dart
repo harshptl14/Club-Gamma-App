@@ -8,7 +8,6 @@ import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-var counter = 0;
 
 class EventPage extends StatefulWidget {
   @override
@@ -45,6 +44,8 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
+    var counter = 0;
+
     return FutureBuilder(
       future: loadEvent(events),
       builder: (context, snapshot) {

@@ -33,7 +33,7 @@ class HomeProvider implements IHomeProvider {
   @override
   getEvent() async {
     var res = await http.get(
-        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/eventsData/event_details.yml');
+        'https://raw.githubusercontent.com/clubgamma/clubgamma-app-backend/master/eventsData/events_details.yml');
     var result = await _client.getAsync(kConstGetEventsUrl);
     if (res.statusCode == 200) {
       var jsontolist = json.decode(json.encode(loadYaml(res.body)));

@@ -61,7 +61,6 @@ class _ConfigPageState extends State<ConfigPage> {
             home: HomePage(),
             routes: {
               HomePage.routeName: (context) => HomePage(),
-              SponsorPage.routeName: (context) => SponsorPage(),
             },
           );
         },

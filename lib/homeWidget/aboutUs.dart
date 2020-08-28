@@ -20,39 +20,51 @@ class AboutUs extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(FontAwesomeIcons.facebookF),
+              icon: Image.asset(ClubGamma.facebookred),
               onPressed: () async {
                 await _launchURL("https://www.facebook.com/clubgamma/");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.twitter),
+              icon: Image.asset(ClubGamma.twitterred),
               onPressed: () async {
                 await _launchURL("https://twitter.com/club_gamma");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.linkedinIn),
+              icon: Image.asset(ClubGamma.linkedinred),
               onPressed: () async {
                 _launchURL(
                     "https://www.linkedin.com/company/clubgamma/?originalSubdomain=in");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.youtube),
+              icon: Image.asset(ClubGamma.githubred),
+              onPressed: () async {
+                await _launchURL("https://github.com/clubgamma");
+              },
+            ),
+            IconButton(
+              icon: Image.asset(ClubGamma.instared),
+              onPressed: () async {
+                await _launchURL("https://www.instagram.com/club_gamma/?hl=en");
+              },
+            ),
+            IconButton(
+              icon: Image.asset(ClubGamma.youtubered),
               onPressed: () async {
                 await _launchURL(
                     "https://www.youtube.com/channel/UCFO_j0Kml2tT3aFgVUSYGxQ");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.instagram),
+              icon: Image.asset(ClubGamma.telegramred),
               onPressed: () async {
-                await _launchURL("https://www.instagram.com/club_gamma/?hl=en");
+                await _launchURL("https://t.me/infoclubgamma");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.envelope),
+              icon: Image.asset(ClubGamma.mailred),
               onPressed: () async {
                 var emailUrl =
                     '''mailto:gce@charusat.edu.in?subject=Support Needed For ClubGamma App''';

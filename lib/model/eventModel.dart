@@ -10,9 +10,21 @@ class EventModel {
   var feedbackLink;
   var hashtag;
   List<Speaker> speaker;
+  List<Sponsor> sponsor;
 
-  EventModel(this.title, this.description, this.imageLink, this.date, this.time,
-      this.venue, this.type, this.regLink, this.feedbackLink, this.hashtag, this.speaker);
+  EventModel(
+      this.title,
+      this.description,
+      this.imageLink,
+      this.date,
+      this.time,
+      this.venue,
+      this.type,
+      this.regLink,
+      this.feedbackLink,
+      this.hashtag,
+      this.speaker,
+      this.sponsor);
 
   EventModel.fromJson(Map<String, dynamic> data) {
     title = data['title'];
@@ -26,7 +38,9 @@ class EventModel {
     feedbackLink = data['feedbackLink'];
     hashtag = data['hashtag'];
     var list = data['speakers'] as List;
+    var listSponser = data['sponsors'] as List;
     speaker = list.map((i) => Speaker.fromJson(i)).toList();
+    sponsor = listSponser.map((i) => Sponsor.fromJson(i)).toList();
   }
 }
 
@@ -52,5 +66,19 @@ class Speaker {
     twitter = data['twitter'];
     github = data['github'];
     instagram = data['instagram'];
+  }
+}
+
+class Sponsor {
+  var name;
+  var type;
+  var logo;
+
+  Sponsor(this.name, this.type, this.logo);
+
+  Sponsor.fromJson(Map<String, dynamic> data) {
+    name = data['name'];
+    type = data['type'];
+    logo = data['logo'];
   }
 }

@@ -6,6 +6,7 @@ import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/utils/clubgamma.dart';
 import 'package:flutter_devfest/utils/tools.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -82,8 +83,12 @@ class HomeFront extends StatelessWidget {
             icon: Icons.attach_money,
             color: ClubGamma.contrastColor,
             title: ClubGamma.sponsor_text,
-            onPressed: () =>
-                Navigator.pushNamed(context, SponsorPage.routeName),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => SponsorPage(tempData)));
+              }
           ),
           ActionCard(
             icon: Icons.assignment,
@@ -106,39 +111,51 @@ class HomeFront extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(FontAwesomeIcons.facebookF),
+              icon: Image.asset(ClubGamma.facebookred),
               onPressed: () async {
                 await _launchURL("https://www.facebook.com/clubgamma/");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.twitter),
+              icon: Image.asset(ClubGamma.twitterred),
               onPressed: () async {
                 await _launchURL("https://twitter.com/club_gamma");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.linkedinIn),
+              icon: Image.asset(ClubGamma.linkedinred),
               onPressed: () async {
                 _launchURL(
                     "https://www.linkedin.com/company/clubgamma/?originalSubdomain=in");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.youtube),
+              icon: Image.asset(ClubGamma.githubred),
+              onPressed: () async {
+                await _launchURL("https://github.com/clubgamma");
+              },
+            ),
+            IconButton(
+              icon: Image.asset(ClubGamma.instared),
+              onPressed: () async {
+                await _launchURL("https://www.instagram.com/club_gamma/?hl=en");
+              },
+            ),
+            IconButton(
+              icon: Image.asset(ClubGamma.youtubered),
               onPressed: () async {
                 await _launchURL(
                     "https://www.youtube.com/channel/UCFO_j0Kml2tT3aFgVUSYGxQ");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.instagram),
+              icon: Image.asset(ClubGamma.telegramred),
               onPressed: () async {
-                await _launchURL("https://www.instagram.com/club_gamma/?hl=en");
+                await _launchURL("https://t.me/infoclubgamma");
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.envelope),
+              icon: Image.asset(ClubGamma.mailred),
               onPressed: () async {
                 var emailUrl =
                     '''mailto:gce@charusat.edu.in?subject=Support Needed For ClubGamma App''';
@@ -152,7 +169,7 @@ class HomeFront extends StatelessWidget {
 
   Widget imagecard(context, imagelink) {
     return Ink(
-      height: MediaQuery.of(context).size.height * 0.28,
+      height: MediaQuery.of(context).size.height * 0.24,
       width: MediaQuery.of(context).size.width * 0.9,
       decoration: BoxDecoration(
         color: ConfigBloc().darkModeOn
@@ -184,9 +201,11 @@ class HomeFront extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
         child: FadeInImage.assetNetwork(
-          fit: BoxFit.cover,
+          fit: BoxFit.fitWidth,
           image: imagelink,
-          placeholder: ClubGamma.loading,
+          placeholder: ConfigBloc().darkModeOn
+              ? ClubGamma.loadingblack
+              : ClubGamma.loading,
         ),
         // Image.network(
         //   imagelink,
@@ -206,6 +225,9 @@ class HomeFront extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              SizedBox(
+                height: 15,
+              ),
               imagecard(context, tempData.imageLink),
               SizedBox(
                 height: 20,

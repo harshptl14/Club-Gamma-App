@@ -86,10 +86,10 @@ class SessionList extends StatelessWidget {
                                               )));
                                 },
                                 child: Ink(
-                                  height: MediaQuery.of(context).size.height *
-                                      0.2049,
+                                  // height: MediaQuery.of(context).size.height *
+                                  //     0.2049,
                                   width:
-                                      MediaQuery.of(context).size.width * 0.75,
+                                      MediaQuery.of(context).size.width * 0.77,
                                   decoration: BoxDecoration(
                                     color: ConfigBloc().darkModeOn
                                         ? Tools.hexToColor("#1f2124")
@@ -165,7 +165,7 @@ class SessionList extends StatelessWidget {
                                             ],
                                           ),
                                           SizedBox(
-                                            width: 95,
+                                            width: 80,
                                           ),
                                           Container(
                                             decoration: BoxDecoration(
@@ -176,28 +176,51 @@ class SessionList extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                             ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0),
-                                              child: Hero(
+                                            child: Hero(
                                                 tag: allSessions
                                                     .agendaList[index].name,
-                                                child: FadeInImage.assetNetwork(
-                                                  fit: BoxFit.cover,
-                                                  image: allSessions
-                                                      .agendaList[index].photo,
-                                                  placeholder:
-                                                      ClubGamma.loading,
-                                                ),
+                                                child: CircleAvatar(
+                                                 // radius: 110,
+                                                  child: ClipOval(
+                                                    child: FadeInImage
+                                                        .assetNetwork(
+                                                      fit: BoxFit.cover,
+                                                      image: allSessions
+                                                          .agendaList[index]
+                                                          .photo,
+                                                      placeholder: ConfigBloc()
+                                                              .darkModeOn
+                                                          ? ClubGamma
+                                                              .loadingblack
+                                                          : ClubGamma.loading,
+                                                    ),
+                                                  ),
+                                                )),
 
-                                                // Image.network(
-                                                //   allSessions
-                                                //       .agendaList[index].photo,
-                                                //   fit: BoxFit.contain,
-                                                // ),
-                                                //  ),
-                                              ),
-                                            ),
+                                            // ClipRRect(
+                                            //   borderRadius:
+                                            //       BorderRadius.circular(30.0),
+                                            //   child: Hero(
+                                            //     tag: allSessions
+                                            //         .agendaList[index].name,
+                                            //     child: FadeInImage.assetNetwork(
+                                            //       fit: BoxFit.cover,
+                                            //       image: allSessions
+                                            //           .agendaList[index].photo,
+                                            //       placeholder: ConfigBloc()
+                                            //               .darkModeOn
+                                            //           ? ClubGamma.loadingblack
+                                            //           : ClubGamma.loading,
+                                            //     ),
+
+                                            //     // Image.network(
+                                            //     //   allSessions
+                                            //     //       .agendaList[index].photo,
+                                            //     //   fit: BoxFit.contain,
+                                            //     // ),
+                                            //     //  ),
+                                            //   ),
+                                            // ),
                                             height: 60,
                                             width: 60,
                                           ),
@@ -220,7 +243,8 @@ class SessionList extends StatelessWidget {
                                       ),
                                       Container(
                                         //alignment: Alignment.center,
-                                        padding: EdgeInsets.only(left: 20),
+                                        padding: EdgeInsets.only(
+                                            left: 20, bottom: 10, top: 2),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
@@ -245,7 +269,7 @@ class SessionList extends StatelessWidget {
                               child: Ink(
                                 height:
                                     MediaQuery.of(context).size.height * 0.09,
-                                width: MediaQuery.of(context).size.width * 0.75,
+                                width: MediaQuery.of(context).size.width * 0.77,
                                 decoration: BoxDecoration(
                                   color: Color(0xffffb3b3),
                                   borderRadius: BorderRadius.circular(8),

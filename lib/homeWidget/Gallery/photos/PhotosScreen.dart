@@ -60,7 +60,8 @@ class _WallScreenState extends State<WallScreen> {
                         child: new FadeInImage.assetNetwork(
                           image: imgPath,
                           fit: BoxFit.cover,
-                          placeholder: ClubGamma.loading,
+                          placeholder: ConfigBloc().darkModeOn
+            ? ClubGamma.loadingblack : ClubGamma.loading,
                         ),
                       ),
                     ),
