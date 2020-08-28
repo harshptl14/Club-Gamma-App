@@ -200,7 +200,7 @@ class AboutUs extends StatelessWidget {
                     icon: Icon(FontAwesomeIcons.github),
                     onPressed: () async {
                       await _launchURL(
-                          "https://github.com/iampawan/GDG-DevFest-App");
+                          "https://github.com/clubgamma/Club-Gamma-App");
                     },
                   )
                 ],

@@ -165,7 +165,7 @@ class SessionList extends StatelessWidget {
                                             ],
                                           ),
                                           SizedBox(
-                                            width: 80,
+                                            width: 76,
                                           ),
                                           Container(
                                             decoration: BoxDecoration(
@@ -196,31 +196,6 @@ class SessionList extends StatelessWidget {
                                                     ),
                                                   ),
                                                 )),
-
-                                            // ClipRRect(
-                                            //   borderRadius:
-                                            //       BorderRadius.circular(30.0),
-                                            //   child: Hero(
-                                            //     tag: allSessions
-                                            //         .agendaList[index].name,
-                                            //     child: FadeInImage.assetNetwork(
-                                            //       fit: BoxFit.cover,
-                                            //       image: allSessions
-                                            //           .agendaList[index].photo,
-                                            //       placeholder: ConfigBloc()
-                                            //               .darkModeOn
-                                            //           ? ClubGamma.loadingblack
-                                            //           : ClubGamma.loading,
-                                            //     ),
-
-                                            //     // Image.network(
-                                            //     //   allSessions
-                                            //     //       .agendaList[index].photo,
-                                            //     //   fit: BoxFit.contain,
-                                            //     // ),
-                                            //     //  ),
-                                            //   ),
-                                            // ),
                                             height: 60,
                                             width: 60,
                                           ),

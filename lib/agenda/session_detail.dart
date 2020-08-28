@@ -35,33 +35,6 @@ class SessionDetail extends StatelessWidget {
                     ),
                   ),
 
-                  // Container(
-                  //     height: MediaQuery.of(context).size.height * 0.28,
-                  //     width: MediaQuery.of(context).size.width * 0.55,
-                  //     decoration: BoxDecoration(
-                  //       borderRadius: BorderRadius.circular(110),
-                  //       color: Color(0xffffb3b3),
-                  //     ),
-                  //     // CircleAvatar(
-                  //     //   backgroundColor: Color(0xffffb3b3),
-                  //     // !ConfigBloc().darkModeOn
-                  //     //                 ? Colors.white
-                  //     //                 : Colors.black,
-                  //     //radius: 100.0,
-                  //     child: ClipRRect(
-                  //       borderRadius: BorderRadius.circular(110),
-                  //       child: FadeInImage.assetNetwork(
-                  //         fit: BoxFit.cover,
-                  //         image: session.photo,
-                  //         placeholder: ConfigBloc().darkModeOn
-                  //             ? ClubGamma.loadingblack
-                  //             : ClubGamma.loading,
-                  //       ),
-                  //       // ),
-                  //       // CachedNetworkImageProvider(
-                  //       //   session.photo  != null ? session.photo : "https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1",
-                  //       // ),
-                  //     )),
                 ),
               ),
               SizedBox(

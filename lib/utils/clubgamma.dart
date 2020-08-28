@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ClubGamma {
   static const String app_name = "ClubGamma";
-  static const String app_version = "Version 1.0.1";
-  static const int app_version_code = 2;
+  static const String app_version = "Version 1.0.2";
+  static const int app_version_code = 4;
   static const String app_color = "#ffd7167";
   static Color primaryAppColor = Colors.white;
   static Color secondaryAppColor = Colors.black;
@@ -46,14 +46,7 @@ class ClubGamma {
   static const String loading_text = "Loading...";
   static const String try_again_text = "Try Again";
   static const String some_error_text = "Some error";
-  static const String signInText = "Sign In";
-  static const String signInGoogleText = "Sign in with google";
-  static const String signOutText = "Sign Out";
   static const String wrongText = "Something went wrong";
-  static const String confirmText = "Confirm";
-  static const String supportText = "Support Needed";
-  static const String featureText = "Feature Request";
-  static const String moreFeatureText = "More Features coming soon.";
   static const String updateNowText =
       "Please update your app for seamless experience.";
   static const String checkNetText =
@@ -73,15 +66,7 @@ class ClubGamma {
   //* Preferences
   static SharedPreferences prefs;
   static const String loggedInPref = "loggedInPref1";
-  static const String displayNamePref = "displayNamePref";
-  static const String emailPref = "emailPref";
-  static const String phonePref = "phonePref";
   static const String photoPref = "photoPref";
   static const String isAdminPref = "isAdminPref";
   static const String darkModePref = "darkModePref";
-
-  //* JSON URLS
-  static const String speakersAssetJson = "assets/json/speakers.json";
-  static const String sessionsAssetJson = "assets/json/sessions.json";
-  static const String teamsAssetJson = "assets/json/teams.json";
 }
