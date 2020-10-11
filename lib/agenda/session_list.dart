@@ -11,7 +11,7 @@ class SessionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return allSessions.agendaList[0].time != null
         ? Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.only(top: 10,right: 2),
             child: ListView.builder(
               // shrinkWrap: false,
               itemCount: allSessions.agendaList.length,
@@ -71,7 +71,7 @@ class SessionList extends StatelessWidget {
                       ),
                       allSessions.agendaList[index].speaker != null
                           ? Padding(
-                              padding: const EdgeInsets.only(top: 2),
+                              padding: const EdgeInsets.only(top: 7),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(8),
                                 onTap: () {
@@ -86,6 +86,7 @@ class SessionList extends StatelessWidget {
                                               )));
                                 },
                                 child: Ink(
+                                  padding: EdgeInsets.only(top: 3, left: 11, right: 11, bottom: 3),
                                   // height: MediaQuery.of(context).size.height *
                                   //     0.2049,
                                   width:
@@ -127,14 +128,16 @@ class SessionList extends StatelessWidget {
                                       Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                padding:
-                                                    EdgeInsets.only(left: 20),
+                                                // padding:
+                                                //EdgeInsets.only(left: 20),
                                                 // height: 20,
                                                 // width: 80,
 
@@ -149,12 +152,6 @@ class SessionList extends StatelessWidget {
                                                 height: 10,
                                               ),
                                               Container(
-                                                padding:
-                                                    EdgeInsets.only(left: 20),
-
-                                                height: 55,
-                                                //     width: 80,
-
                                                 child: Text(
                                                   '${allSessions.agendaList[index].name}',
                                                   style: TextStyle(
@@ -163,9 +160,6 @@ class SessionList extends StatelessWidget {
                                                 ),
                                               ),
                                             ],
-                                          ),
-                                          SizedBox(
-                                            width: 76,
                                           ),
                                           Container(
                                             decoration: BoxDecoration(
@@ -180,7 +174,7 @@ class SessionList extends StatelessWidget {
                                                 tag: allSessions
                                                     .agendaList[index].name,
                                                 child: CircleAvatar(
-                                                 // radius: 110,
+                                                  // radius: 110,
                                                   child: ClipOval(
                                                     child: FadeInImage
                                                         .assetNetwork(
@@ -202,7 +196,7 @@ class SessionList extends StatelessWidget {
                                         ],
                                       ),
                                       Container(
-                                        padding: EdgeInsets.only(left: 20),
+                                        //padding: EdgeInsets.only(left: 20),
                                         child: Text(
                                           allSessions.agendaList[index].speaker,
                                           style: TextStyle(
@@ -219,7 +213,7 @@ class SessionList extends StatelessWidget {
                                       Container(
                                         //alignment: Alignment.center,
                                         padding: EdgeInsets.only(
-                                            left: 20, bottom: 10, top: 2),
+                                            bottom: 10, top: 2.5),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
@@ -239,7 +233,7 @@ class SessionList extends StatelessWidget {
                             )
                           : Padding(
                               padding: const EdgeInsets.only(
-                                top: 2,
+                                top: 7,
                               ),
                               child: Ink(
                                 height:

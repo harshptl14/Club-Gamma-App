@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ClubGamma {
   static const String app_name = "ClubGamma";
-  static const String app_version = "Version 1.0.2";
-  static const int app_version_code = 4;
+  static const String app_version = "Version 1.0.3";
+  static const int app_version_code = 5;
   static const String app_color = "#ffd7167";
   static Color primaryAppColor = Colors.white;
   static Color secondaryAppColor = Colors.black;
