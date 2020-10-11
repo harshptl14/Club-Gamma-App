@@ -53,7 +53,7 @@ class ClubGamma {
       "It seems like your internet connection is not active.";
   static const String whatIsClubGamma = "What is ClubGamma?";
   static const String aboutusText =
-      "Club Gamma is official student tech community under GitHub campus Expert, it is to enrich the Technology enthusiastic students on the campuses, ranging from newbie coders to experts in industry and other academic domains. Club arranges various workshops, seminars, hands-on programs, personality building lectures by the best people in domain to benefit the entire student community.";
+      "Club Gamma formulates a contributory platform to scrutinize learner's potential talents with profound guidance. The club assists in both technical and non-technical spheres. The pivot of the club fundamentally is to promote the inclusive growth of the learners and help the learners attain analytical knowledge.";
 
   //* ActionTexts
   static const String agenda_text = "Agenda";
