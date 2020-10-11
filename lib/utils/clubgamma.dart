@@ -53,7 +53,7 @@ class ClubGamma {
       "It seems like your internet connection is not active.";
   static const String whatIsClubGamma = "What is ClubGamma?";
   static const String aboutusText =
-      "Club Gamma formulates a contributory platform to scrutinize learner's potential talents with profound guidance. The club assists in both technical and non-technical spheres. The pivot of the club fundamentally is to promote the inclusive growth of the learners and help the learners attain analytical knowledge.";
+      "Club Gamma formulates a contributory platform to scrutinize learner's potential talents with profound guidance. The club assists in both technical and non-technical spheres.\n\nThe pivot of the club fundamentally is to promote the inclusive growth of the learners and help the learners attain analytical knowledge.";
 
   //* ActionTexts
   static const String agenda_text = "Agenda";
